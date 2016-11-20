@@ -1,0 +1,104 @@
+\documentclass[10pt]{beamer}
+
+\usetheme[
+	%titleformat=smallcaps,
+	background=dark,
+	progressbar=frametitle,
+	numbering=none,
+]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\usepackage[]{graphicx}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\setbeamercolor{frametitle}{%
+	fg=black!2,
+	bg=mDarkTeal
+}
+
+\title{A look into the Mobile Messaging Black Box}
+\subtitle{\scriptsize{33rd Chaos Commmunication Congress \#33c3}}
+\date{\today}
+\author{
+	\parbox[t]{1.1in}{Roland Schilling}{\scriptsize{\texttt{@NerdingByDoing}}}\\
+	\parbox[t]{1.1in}{Frieder Steinmetz}{\scriptsize{\texttt{@twillnix}}}
+}
+
+\institute{Hamburg University of Technology\\
+Security in Distributed Applications}
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\begin{frame}
+	\frametitle{Messaging - An Analogy}
+	\begin{itemize}
+		\item You're at a party
+		\item Friend approaches you and needs to tell you something \alert{in private}
+		\item What do you expect when you say \alert{private}?
+		\item You enter a separate room, you trust the location
+		\item What does a separate room offer you?
+			\begin{itemize}
+				\item Authenticity
+				\item Integrity
+				\item Forward Secrecy
+				\item Future Secrecy
+				\item Plausible Deniability
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\section{Case Study - Signal}
+
+\section{Reverse-Engineering Threema}
+
+\begin{frame}
+	\frametitle{Enter Threema}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Threema Packet Format}
+
+	\includegraphics[page=1,clip,trim={2.6cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Threema: Special Messages}
+	\begin{itemize}
+		\item Polls
+		\item Images with Caption
+			\begin{itemize}
+				\item Case of caption leak found
+			\end{itemize}
+		\item Audio Messages
+			\begin{itemize}
+				\item Leak Android version
+				\item Possible stagefright vector
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Threema Image Messages}
+	\includegraphics[page=4,clip,trim={2.6cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Threema Audio Messages}
+	\includegraphics[page=5,clip,trim={2.6cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
+\end{frame}
+
+\end{document}

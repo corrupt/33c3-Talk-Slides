@@ -1,0 +1,223 @@
+\documentclass[a5paper,landscape,12pt]{scrartcl}
+\usepackage[
+	bitwidth=2.2ex,
+	bitheight=4ex,
+]{bytefield}
+\usepackage[]{graphicx}
+\usepackage{xcolor}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\colorbitbox}[4][rltb]{%
+	\rlap{\bitbox[#1]{#3}{\color{#2}\rule{\width}{\height}}}%
+	\bitbox[#1]{#3}{#4}}
+\newcommand{\colorwordbox}[4][lrtb]{%
+	\rlap{\wordbox[#1]{#3}{\color{#2}\rule{\width}{\height}}}%
+	\wordbox[#1]{#3}{#4}}
+\newcommand{\cbb}{\colorbitbox}
+\newcommand{\cwb}{\colorwordbox}
+
+\definecolor{TolLightBlue}{HTML}{88CCEE}
+\definecolor{TolLightGreen}{HTML}{44AA99}
+\definecolor{TolLightBrown}{HTML}{DDCC77}
+\definecolor{TolLightRed}{HTML}{CC6677}
+\definecolor{TolLightPink}{HTML}{AA4466}
+\definecolor{TolLightPurple}{HTML}{AA4499}
+
+\definecolor{TolDarkBlue}{HTML}{6699CC}
+\definecolor{TolDarkGreen}{HTML}{117733}
+\definecolor{TolDarkBrown}{HTML}{999933}
+\definecolor{TolDarkRed}{HTML}{661100}
+\definecolor{TolDarkPink}{HTML}{882255}
+\definecolor{TolDarkPurple}{HTML}{332288}
+
+\colorlet{ThreemaID}{TolLightPurple}
+\colorlet{Time}{TolDarkBlue}
+\colorlet{Key}{TolLightGreen}
+\colorlet{Nonce}{TolDarkBrown}
+\colorlet{Ciphertext}{TolLightRed}
+\colorlet{PktType}{TolLightPink}
+\colorlet{MsgID}{TolDarkGreen}
+\colorlet{MsgType}{TolDarkGreen}
+\colorlet{String}{TolDarkRed}
+\colorlet{Size}{TolDarkPurple}
+\colorlet{GroupID}{TolDarkPink}
+\colorlet{Blob}{TolLightRed}
+\colorlet{Padding}{TolDarkBlue}
+
+\renewcommand{\familydefault}{\sfdefault}
+% page breaks at every section
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
+%use metropolis colors
+\definecolor{mDarkTeal}{HTML}{23373b}
+\pagecolor{mDarkTeal}
+\color{black!2}
+\pagenumbering{gobble}
+
+% inserts a formatted colored header
+% header colors can be faded by using the optional parameter
+% e.g. \header[!20!white] to fade colors to 80% white
+\newcommand{\header}[1][]{%
+\cbb{PktType#1}{4}{\scriptsize Pkt Type} \cbb{ThreemaID#1}{8}{Sender} \cbb{ThreemaID#1}{8}{Recipient}%
+\cbb{MsgID#1}{8}{Message ID} \cbb{Time#1}{4}{Time}\\%
+\cbb{Time#1}{4}{} \cbb{mDarkTeal#1}{4}{Flags}%
+\cbb{String#1}{24}{Public Nickname (string)}\\%
+\cbb{String#1}{8}{} \cbb{Nonce#1}{24}{Nonce} %
+}
+
+\def\groupheader{%
+	\cbb{ThreemaID}{8}{Creator ID} \cbb{GroupID}{8}{Group ID}%
+}
+
+\newcommand{\emptybox}[2][rltb]{%
+	\cbb[#1]{mDarkTeal}{#2}{}%
+}
+
+\begin{document}
+\color{black!2}
+
+%\section*{Packets}
+
+\section*{Message Packet (Threema Protocol Layer)}
+
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Header}
+		\header
+	\end{rightwordgroup} \\
+	%\begin{rightwordgroup}{\makebox[0pt][l]{Body}\phantom{Header}}
+		\cwb[rlb]{Ciphertext}{3}{Ciphertext} 
+	%\end{rightwordgroup}
+\end{bytefield}
+
+\begin{itemize}
+	\item Only the MSB of \emph{Flags is used}
+\end{itemize}
+
+\section*{Message Packet on the Wire}
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\cbb{Size}{2}{\tiny Length} & \cbb[rlt]{Ciphertext}{30}{} \\
+	\cwb[rlb]{Ciphertext}{3}{\raisebox{2em}{Threema Client-to-Server Ciphertext}} \\
+\end{bytefield}
+
+
+\section*{Text Message}
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Header}
+		\header[!10!lightgray]
+	\end{rightwordgroup}\\
+	\begin{rightwordgroup}{Ciphertext}
+		\cbb{MsgType}{1}{\rotatebox{90}{\tiny\bfseries 0x01}} & \cbb[rlt]{String}{31}{}\\
+		\cbb[rlb]{String}{17}{\raisebox{2em}{Text}} & \cbb{Padding}{15}{Variable-length Padding}
+	\end{rightwordgroup}\\
+\end{bytefield}
+
+
+\section*{Image Message}
+
+	\begin{bytefield}{32}
+		\bitheader{0-31}\\
+		\begin{rightwordgroup}{Header}
+			\header[!10!lightgray]
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{Ciphertext}
+			\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize\bfseries 0x43}} & \cbb{Blob}{16}{Blob ID} & 
+			\cbb{Size}{4}{Size} & \cbb{Key}{11}{Key} \\
+			\cbb{Key}{21}{} & \cbb[tlr]{Padding}{11}{} \\
+			\cwb[lbr]{Padding}{1}{Variable-length Padding}
+		\end{rightwordgroup}\\
+	\end{bytefield}
+
+	\begin{itemize}
+		\item Blob is symmetrically encrypted using \emph{Key} and uploaded to asset server.
+		\item Image captions are stored inside the image's EXIF data. These data leak upon creating such an image while the ``save media to gallery'' option is enabled.
+	\end{itemize}
+
+\section*{Audio Message}
+
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Header}
+		\header[!10!lightgray]
+	\end{rightwordgroup}\\
+	\begin{rightwordgroup}{Ciphertext}
+		\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize\bfseries 0x02}} & \cbb{mDarkTeal}{2}{\rotatebox{45}{\tiny 0xFFFF}}
+		\cbb{Blob}{16}{Blob ID} &
+		\cbb{Size}{4}{Size} & \cbb{Key}{9}{Key} \\
+		\cbb{Key}{23}{} & \cbb[lrt]{Padding}{9}{} \\
+		\cbb[rlb]{Padding}{32}{Variable-length Padding}
+	\end{rightwordgroup}\\
+\end{bytefield}
+
+
+\section*{Group Message Packet}
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Message Header}
+		\header[!10!lightgray]
+	\end{rightwordgroup}\\
+	\begin{rightwordgroup}{Ciphertext}
+		\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize \bfseries 0x41}} & \groupheader & 
+		& \cbb[rlt]{String}{15 }{}\\
+		\cbb[rlb]{String}{32}{Text} \\ 
+		\cbb{Padding}{32}{Variable-length Padding}
+	\end{rightwordgroup}
+\end{bytefield}
+
+\section*{Group Image Message}
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Message Header}
+		\header[!10!lightgray]
+	\end{rightwordgroup}\\
+	\begin{rightwordgroup}{Ciphertext}
+		\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize \bfseries 0x41}} & \groupheader & \cbb{Blob}{15}{Blob ID} \\
+		\cbb{Blob}{1}{} & \cbb{Size}{4}{Size} 
+		& \cbb{Key}{27}{Key} \\
+		\cbb{Key}{5}{} & \cbb{Padding}{27}{Variable-length Padding}
+	\end{rightwordgroup}
+\end{bytefield}
+
+\section*{Group Picture Update}
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Message Header}
+		\header[!10!lightgray]
+	\end{rightwordgroup}\\
+	\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize\bfseries{80}}} & \cbb{GroupID}{8}{Group ID} & \cbb{Blob}{16}{Blob ID} & \cbb{Size}{4}{Size} & \cbb{Key}{3}{} \\
+	\cbb{Key}{29}{Symmetric key} & \cbb[ltr]{Padding}{3}{}\\
+	\cwb[lbr]{Padding}{1}{Variable-length Padding}\\
+\end{bytefield}
+
+\section*{Create/Update Group (members)}
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Message Header}
+		\header[!10!lightgray]
+	\end{rightwordgroup}\\
+	\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize\bfseries 74}} & \cbb{GroupID}{8}{Group ID} & \cbb[ltr]{ThreemaID}{23}{} \\
+	\cwb[lbr]{ThreemaID}{1}{\raisebox{2em}{Group Members}}\\
+\end{bytefield}
+
+
+\section*{Acknowledgement Packet to Server}
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\cbb{Size}{2}{\tiny Length} & \cbb{PktType}{4}{\scriptsize{Pkt Type}} & \cbb{ThreemaID}{8}{Sender} & \cbb{MsgID}{8}{Message ID}\\[.5em]
+\emptybox[]{2} & \cbb[lr]{mDarkTeal}{20}{$\longleftarrow$ \quad Length \quad $\longrightarrow$} 
+\end{bytefield}
+
+\end{document}
+
+
