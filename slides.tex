@@ -6,6 +6,8 @@
 	progressbar=frametitle,
 	numbering=none,
 ]{metropolis}
+\usecolortheme[cautious]{owl}
+
 \usepackage{appendixnumberbeamer}
 
 \usepackage{booktabs}
@@ -15,13 +17,21 @@
 \usepgfplotslibrary{dateplot}
 \usepackage[]{graphicx}
 
+\usepackage{eso-pic}
+\AddToShipoutPicture{%
+\makeatletter%
+\special{pdf: put @thispage <</Group << /S /Transparency /I true /CS /DeviceRGB>> >>}%
+\makeatother%
+}
+
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
-\setbeamercolor{frametitle}{%
-	fg=black!2,
-	bg=mDarkTeal
-}
+% When using Metropolis
+%\setbeamercolor{frametitle}{%
+%	fg=black!2,
+%	bg=mDarkTeal
+%}
 
 \title{A look into the Mobile Messaging Black Box}
 \subtitle{\scriptsize{33rd Chaos Commmunication Congress \#33c3}}

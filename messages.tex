@@ -6,6 +6,13 @@
 \usepackage[]{graphicx}
 \usepackage{xcolor}
 
+\usepackage{eso-pic}
+\AddToShipoutPicture{%
+\makeatletter%
+\special{pdf: put @thispage <</Group << /S /Transparency /I true /CS /DeviceRGB>> >>}%
+\makeatother%
+}
+
 \setlength{\parindent}{0pt}
 
 \newcommand{\colorbitbox}[4][rltb]{%
@@ -45,6 +52,7 @@
 \colorlet{Blob}{TolLightRed}
 \colorlet{Padding}{TolDarkBlue}
 
+
 \renewcommand{\familydefault}{\sfdefault}
 % page breaks at every section
 \let\oldsection\section
@@ -52,8 +60,17 @@
 
 %use metropolis colors
 \definecolor{mDarkTeal}{HTML}{23373b}
-\pagecolor{mDarkTeal}
-\color{black!2}
+
+% Background Colors
+%\colorlet{defaultBg}{mDarkTeal} %metropolis
+\colorlet{defaultBg}{white!1!black} %owl - for some reason just 'black' creates a white background when importing the PDF.
+
+% Foreground Colors
+%\colorlet{defaultFg}{black!2} %metropolis
+\colorlet{defaultFg}{white} %owl
+
+\pagecolor{defaultBg}
+\color{defaultFg} %metro
 \pagenumbering{gobble}
 
 % inserts a formatted colored header
@@ -62,7 +79,7 @@
 \newcommand{\header}[1][]{%
 \cbb{PktType#1}{4}{\scriptsize Pkt Type} \cbb{ThreemaID#1}{8}{Sender} \cbb{ThreemaID#1}{8}{Recipient}%
 \cbb{MsgID#1}{8}{Message ID} \cbb{Time#1}{4}{Time}\\%
-\cbb{Time#1}{4}{} \cbb{mDarkTeal#1}{4}{Flags}%
+\cbb{Time#1}{4}{} \cbb{defaultBg#1}{4}{Flags}%
 \cbb{String#1}{24}{Public Nickname (string)}\\%
 \cbb{String#1}{8}{} \cbb{Nonce#1}{24}{Nonce} %
 }
@@ -72,11 +89,11 @@
 }
 
 \newcommand{\emptybox}[2][rltb]{%
-	\cbb[#1]{mDarkTeal}{#2}{}%
+	\cbb[#1]{defaultBg}{#2}{}%
 }
 
 \begin{document}
-\color{black!2}
+\color{defaultFg}
 
 %\section*{Packets}
 
@@ -149,7 +166,7 @@
 		\header[!10!lightgray]
 	\end{rightwordgroup}\\
 	\begin{rightwordgroup}{Ciphertext}
-		\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize\bfseries 0x02}} & \cbb{mDarkTeal}{2}{\rotatebox{45}{\tiny 0xFFFF}}
+		\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize\bfseries 0x02}} & \cbb{defaultBg}{2}{\rotatebox{45}{\tiny 0xFFFF}}
 		\cbb{Blob}{16}{Blob ID} &
 		\cbb{Size}{4}{Size} & \cbb{Key}{9}{Key} \\
 		\cbb{Key}{23}{} & \cbb[lrt]{Padding}{9}{} \\
@@ -215,7 +232,7 @@
 \begin{bytefield}{32}
 	\bitheader{0-31}\\
 	\cbb{Size}{2}{\tiny Length} & \cbb{PktType}{4}{\scriptsize{Pkt Type}} & \cbb{ThreemaID}{8}{Sender} & \cbb{MsgID}{8}{Message ID}\\[.5em]
-\emptybox[]{2} & \cbb[lr]{mDarkTeal}{20}{$\longleftarrow$ \quad Length \quad $\longrightarrow$} 
+\emptybox[]{2} & \cbb[lr]{defaultBg}{20}{$\longleftarrow$ \quad Length \quad $\longrightarrow$} 
 \end{bytefield}
 
 \end{document}
