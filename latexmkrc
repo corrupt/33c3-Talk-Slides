@@ -15,6 +15,7 @@ $poscscript_mode=0;
 $dvi_mode=0;
 
 $pdflatex='xelatex --shell-escape %O %S -pdf -dvi- -ps-';
+#$pdflatex='pdflatex -shell-escape -synctex=1 %O  %S';
 $pdflatex_silent_switch='-interaction=batchmode';
 $silent=1;
 $recorder=1;

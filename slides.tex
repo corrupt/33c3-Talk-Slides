@@ -1,4 +1,4 @@
-\documentclass[10pt]{beamer}
+\documentclass[aspectratio=169]{beamer}
 
 \usetheme[
 	%titleformat=smallcaps,
@@ -6,7 +6,7 @@
 	progressbar=frametitle,
 	numbering=none,
 ]{metropolis}
-\usecolortheme[cautious]{owl}
+\usecolortheme{owl}
 
 \usepackage{appendixnumberbeamer}
 
@@ -16,13 +16,6 @@
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 \usepackage[]{graphicx}
-
-\usepackage{eso-pic}
-\AddToShipoutPicture{%
-\makeatletter%
-\special{pdf: put @thispage <</Group << /S /Transparency /I true /CS /DeviceRGB>> >>}%
-\makeatother%
-}
 
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
@@ -37,8 +30,8 @@
 \subtitle{\scriptsize{33rd Chaos Commmunication Congress \#33c3}}
 \date{\today}
 \author{
-	\parbox[t]{1.1in}{Roland Schilling}{\scriptsize{\texttt{@NerdingByDoing}}}\\
-	\parbox[t]{1.1in}{Frieder Steinmetz}{\scriptsize{\texttt{@twillnix}}}
+	\parbox[t]{1.2in}{Roland Schilling}{\scriptsize{\texttt{@NerdingByDoing}}}\\
+	\parbox[t]{1.2in}{Frieder Steinmetz}{\scriptsize{\texttt{@twillnix}}}
 }
 
 \institute{Hamburg University of Technology\\
@@ -60,6 +53,7 @@ Security in Distributed Applications}
 		\item You enter a separate room, you trust the location
 		\item What does a separate room offer you?
 			\begin{itemize}
+				\item Confidentiality
 				\item Authenticity
 				\item Integrity
 				\item Forward Secrecy
@@ -69,13 +63,135 @@ Security in Distributed Applications}
 	\end{itemize}
 \end{frame}
 
+\begin{frame}
+	\frametitle{A Private Room}
+	You are now alone in a closed room with your Friend
+	\begin{itemize}
+		\item Both of you have absolute Confidentiality that you are alone
+		\item Nobody can overhear your talk
+		\item Your exchange is completely private
+	\end{itemize}
+	We call this \alert{confidentiality}
+\end{frame}
+
+\begin{frame}
+	\frametitle{In Sight of Each Other}
+	The room you're in is small enough that you can always see each other
+	\begin{itemize}
+		\item You know that the words you speak are received just as you spoke them
+		\item There is no way either of you hears something else that the other says
+	\end{itemize}
+	We call this \alert{integrity}
+\end{frame}
+
+\begin{frame}
+	\frametitle{You Know Each Other}
+	Since you're long-time friends, you're absolutely sure, whom you're talking to
+	\begin{itemize}
+		\item Nobody can impersonate your friend or you, without the other noticing
+		\item You're talking directly, without a phone or webcam in between
+	\end{itemize}
+	We call this \alert{authenticity}
+\end{frame}
+
+\begin{frame}
+	\frametitle{It's a One-Time Talk}
+	Suppose somebody was present in the room with you	
+	\begin{itemize}
+		\item They could overhear your conversation
+		\item They would only learn the contents of this particular conversation
+		\item They would not learn anything about past conversations you had
+	\end{itemize}
+	We call this \alert{forward secrecy}
+	\begin{itemize}
+		\item[$\rightarrow$] They would also not learn anything about future conversations you might have
+	\end{itemize}
+	We call this \alert{future secrecy}
+\end{frame}
+
+\begin{frame}
+	\frametitle{It's a One-Time Talk Between Only You Two}
+	There are no witnesses in the room
+	\begin{itemize}
+		\item Either of you can later deny to other having made any statement
+		\item Neither of you can prove to other that any of you have made a particular statement
+	\end{itemize}
+	We call this \alert{deniability}
+\end{frame}
+
+\section{Enter Messaging Services}
+
+\begin{frame}
+	\frametitle{Traditional Messaging}
+	What if this conversation had taken place via SMS?\\[1em]
+	Your providers
+	\begin{itemize}
+		\item would know the contents of your exchange: \alert{no confidentiality}
+		\item could change the contents of your exchange: \alert{no integrity}
+		\item could reroute your messages and impersonate either of you: \alert{no authentication}
+		\item would know all messages you ever exchanged: \alert{no forward Secrecy}
+		\item would know all messages exchanged in the future: \alert{no future secrecy}
+		\item could store all messages and use them as proof of the exchange: \alert{no deniability}
+	\end{itemize}
+	Messaging translates badly to our offline communication expectation
+\end{frame}
+
 \section{Case Study - Signal}
+
+\begin{frame}
+	\frametitle{Signal - Notes}
+	\begin{itemize}
+		\item Server-side cached short-term keys (\alert{prekeys}) fetched by sender
+		\item Pairwise long-lived symmetric secret key between participants
+		\item Multiple messages without answer $\rightarrow$ perform KDF on \alert{chaining key}
+		\item ECDH: Curve25519, AES-CTR (no padding), AES-CBC (pkcs7 padding)
+		\item HMAC-SHA256 for integrity
+		\item Future secrecy only if private keys are not leaked (duh!). Since private keys go into new shared keys during ratcheting, the attacker lacks material to compromise next key after obtaining current one.
+		\item Since shared keys are only deleted after messages are received, there is a window in which keys could be compromised before reception. 
+		\item Deniability is always a theoretical claim as long as a transmission server has the ability to log messages, their senders and recipients.
+
+	\end{itemize}
+\end{frame}
 
 \section{Reverse-Engineering Threema}
 
 \begin{frame}
 	\frametitle{Enter Threema}
+	Threema
+	\begin{itemize}
+		\item Gained polularity in Germany after Facebook purchased WhatsApp
+		\item All promise -- no proof; first openly contemplating to OSS the code, later backing away from that statement
+		\item Interest in its inner workings
+	\end{itemize}
+
+	Quick Shoutouts
+	\begin{itemize}
+		\item Jan Ahrens for releasing his findings about the handshake before we did
+		\item OpenMittsu for releasing the first working OSS client
+	\end{itemize}
 	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Reverse-Engineering -- What to look for?}
+\begin{itemize}
+	\item Test for common pitfalls in implementation
+		\begin{itemize}
+			\item Handling of TLS
+			\item Handling of keys and nonces
+			\item NaCl implentation errors
+			\item Uncommon data leaks
+			\item Bugs
+			\item \ldots?
+		\end{itemize}
+	\item Find out how protocol is designed
+		\begin{enumerate}
+			\item Understand handshakek
+			\item Understand protocol
+			\item decipher messages
+		\end{enumerate}
+\end{itemize}
+\alert{Positive sidenote}: Threema had released a security whie paper early on
 \end{frame}
 
 \begin{frame}
@@ -109,6 +225,11 @@ Security in Distributed Applications}
 \begin{frame}
 	\frametitle{Threema Audio Messages}
 	\includegraphics[page=5,clip,trim={2.6cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Group Messages}
+	\includegraphics[page=6,clip,trim={2.6cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
 \end{frame}
 
 \end{document}

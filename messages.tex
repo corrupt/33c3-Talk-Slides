@@ -16,41 +16,65 @@
 \setlength{\parindent}{0pt}
 
 \newcommand{\colorbitbox}[4][rltb]{%
-	\rlap{\bitbox[#1]{#3}{\color{#2}\rule{\width}{\height}}}%
+	\rlap{\bitbox[#1]{#3}{\color{#2}\rule{\width+.5pt}{\height+.5pt}}}%
 	\bitbox[#1]{#3}{#4}}
 \newcommand{\colorwordbox}[4][lrtb]{%
-	\rlap{\wordbox[#1]{#3}{\color{#2}\rule{\width}{\height}}}%
+	\rlap{\wordbox[#1]{#3}{\color{#2}\rule{\width+.5pt}{\height+.5pt}}}%
 	\wordbox[#1]{#3}{#4}}
 \newcommand{\cbb}{\colorbitbox}
 \newcommand{\cwb}{\colorwordbox}
 
-\definecolor{TolLightBlue}{HTML}{88CCEE}
-\definecolor{TolLightGreen}{HTML}{44AA99}
-\definecolor{TolLightBrown}{HTML}{DDCC77}
-\definecolor{TolLightRed}{HTML}{CC6677}
-\definecolor{TolLightPink}{HTML}{AA4466}
-\definecolor{TolLightPurple}{HTML}{AA4499}
+%%colorscheme Tol
+%\definecolor{TolLightBlue}{HTML}{88CCEE}
+%\definecolor{TolLightGreen}{HTML}{44AA99}
+%\definecolor{TolLightBrown}{HTML}{DDCC77}
+%\definecolor{TolLightRed}{HTML}{CC6677}
+%\definecolor{TolLightPink}{HTML}{AA4466}
+%\definecolor{TolLightPurple}{HTML}{AA4499}
+%\definecolor{TolDarkBlue}{HTML}{6699CC}
+%\definecolor{TolDarkGreen}{HTML}{117733}
+%\definecolor{TolDarkBrown}{HTML}{999933}
+%\definecolor{TolDarkRed}{HTML}{661100}
+%\definecolor{TolDarkPink}{HTML}{882255}
+%\definecolor{TolDarkPurple}{HTML}{332288}
+%
+%\colorlet{ThreemaID}{TolLightPurple}
+%\colorlet{Time}{TolDarkBlue}
+%\colorlet{Key}{TolLightGreen}
+%\colorlet{Nonce}{TolDarkBrown}
+%\colorlet{Ciphertext}{TolLightRed}
+%\colorlet{PktType}{TolLightPink}
+%\colorlet{MsgID}{TolDarkGreen}
+%\colorlet{MsgType}{TolDarkGreen}
+%\colorlet{String}{TolDarkRed}
+%\colorlet{Size}{TolDarkPurple}
+%\colorlet{GroupID}{TolDarkPink}
+%\colorlet{Blob}{TolLightRed}
+%\colorlet{Padding}{TolDarkBlue}
 
-\definecolor{TolDarkBlue}{HTML}{6699CC}
-\definecolor{TolDarkGreen}{HTML}{117733}
-\definecolor{TolDarkBrown}{HTML}{999933}
-\definecolor{TolDarkRed}{HTML}{661100}
-\definecolor{TolDarkPink}{HTML}{882255}
-\definecolor{TolDarkPurple}{HTML}{332288}
+%colorscheme owl
+\definecolor{OwlRed}{RGB}{    255,  92, 168}
+\definecolor{OwlGreen}{RGB}{   90, 168,   0}
+\definecolor{OwlBlue}{RGB}{     0, 152, 233}
+\definecolor{OwlYellow}{RGB}{ 242, 147,  24}
+\colorlet{OwlViolet}{OwlRed!50!OwlBlue}
+\colorlet{OwlBrown}{OwlRed!50!OwlGreen}
+\colorlet{OwlOrange}{OwlRed!50!OwlYellow}
+\colorlet{OwlCyan}{OwlGreen!50!OwlBlue}
 
-\colorlet{ThreemaID}{TolLightPurple}
-\colorlet{Time}{TolDarkBlue}
-\colorlet{Key}{TolLightGreen}
-\colorlet{Nonce}{TolDarkBrown}
-\colorlet{Ciphertext}{TolLightRed}
-\colorlet{PktType}{TolLightPink}
-\colorlet{MsgID}{TolDarkGreen}
-\colorlet{MsgType}{TolDarkGreen}
-\colorlet{String}{TolDarkRed}
-\colorlet{Size}{TolDarkPurple}
-\colorlet{GroupID}{TolDarkPink}
-\colorlet{Blob}{TolLightRed}
-\colorlet{Padding}{TolDarkBlue}
+\colorlet{ThreemaID}{OwlRed}
+\colorlet{Time}{OwlGreen}
+\colorlet{Key}{OwlBlue}
+\colorlet{Nonce}{OwlYellow}
+\colorlet{Ciphertext}{OwlViolet}
+\colorlet{PktType}{OwlBrown}
+\colorlet{MsgID}{OwlOrange}
+\colorlet{MsgType}{OwlCyan}
+\colorlet{String}{OwlBlue}
+\colorlet{Size}{OwlBrown}
+\colorlet{GroupID}{OwlRed}
+\colorlet{Blob}{OwlViolet}
+\colorlet{Padding}{OwlGreen}
 
 
 \renewcommand{\familydefault}{\sfdefault}
@@ -106,7 +130,7 @@
 		\header
 	\end{rightwordgroup} \\
 	%\begin{rightwordgroup}{\makebox[0pt][l]{Body}\phantom{Header}}
-		\cwb[rlb]{Ciphertext}{3}{Ciphertext} 
+		\cwb{Ciphertext}{3}{Ciphertext} 
 	%\end{rightwordgroup}
 \end{bytefield}
 
@@ -119,7 +143,8 @@
 \begin{bytefield}{32}
 	\bitheader{0-31}\\
 	\cbb{Size}{2}{\tiny Length} & \cbb[rlt]{Ciphertext}{30}{} \\
-	\cwb[rlb]{Ciphertext}{3}{\raisebox{2em}{Threema Client-to-Server Ciphertext}} \\
+	\cbb[lt]{Ciphertext}{2}{} & \cbb[r]{Ciphertext}{30}{}\\
+	\cwb[rlb]{Ciphertext}{2}{\raisebox{2em}{\raisebox{2em}{Threema Client-to-Server Ciphertext}}} \\
 \end{bytefield}
 
 
@@ -132,7 +157,7 @@
 	\end{rightwordgroup}\\
 	\begin{rightwordgroup}{Ciphertext}
 		\cbb{MsgType}{1}{\rotatebox{90}{\tiny\bfseries 0x01}} & \cbb[rlt]{String}{31}{}\\
-		\cbb[rlb]{String}{17}{\raisebox{2em}{Text}} & \cbb{Padding}{15}{Variable-length Padding}
+		\cbb[tlb]{String}{1}{} & \cbb[rb]{String}{16}{\hspace{-2em}\raisebox{2em}{Text}} & \cbb{Padding}{15}{Variable-length Padding}
 	\end{rightwordgroup}\\
 \end{bytefield}
 
@@ -147,8 +172,8 @@
 		\begin{rightwordgroup}{Ciphertext}
 			\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize\bfseries 0x43}} & \cbb{Blob}{16}{Blob ID} & 
 			\cbb{Size}{4}{Size} & \cbb{Key}{11}{Key} \\
-			\cbb{Key}{21}{} & \cbb[tlr]{Padding}{11}{} \\
-			\cwb[lbr]{Padding}{1}{Variable-length Padding}
+		\cbb{Key}{21}{} & \cbb[lrt]{Padding}{11}{} \\
+		\cbb[tlb]{Padding}{21}{Variable-length Padding} & \cbb[br]{Padding}{11}{}
 		\end{rightwordgroup}\\
 	\end{bytefield}
 
@@ -170,7 +195,7 @@
 		\cbb{Blob}{16}{Blob ID} &
 		\cbb{Size}{4}{Size} & \cbb{Key}{9}{Key} \\
 		\cbb{Key}{23}{} & \cbb[lrt]{Padding}{9}{} \\
-		\cbb[rlb]{Padding}{32}{Variable-length Padding}
+		\cbb[tlb]{Padding}{23}{Variable-length Padding} & \cbb[br]{Padding}{9}{}
 	\end{rightwordgroup}\\
 \end{bytefield}
 
@@ -185,7 +210,7 @@
 	\begin{rightwordgroup}{Ciphertext}
 		\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize \bfseries 0x41}} & \groupheader & 
 		& \cbb[rlt]{String}{15 }{}\\
-		\cbb[rlb]{String}{32}{Text} \\ 
+		\cbb[ltb]{String}{17}{} & \cbb[rb]{String}{15}{\raisebox{2em}{Text}} \\ 
 		\cbb{Padding}{32}{Variable-length Padding}
 	\end{rightwordgroup}
 \end{bytefield}
