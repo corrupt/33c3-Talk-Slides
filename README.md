@@ -3,7 +3,8 @@ Slides of my Talk "A look into the Mobile Messaging Black Box" at 33c3
 
 ## Dependencies 
 
-* Matthias Vogelgesang's [Metropolis](https://github.com/matze/mtheme) theme for Latex Beamer
+* Matthias Vogelgesang's [Metropolis theme](https://github.com/matze/mtheme) for Latex Beamer
+* Ross Churchley's [Owl color scheme](https://github.com/rchurchley/beamercolortheme-owl) for Latex Beamer
 
 ## Build
 
