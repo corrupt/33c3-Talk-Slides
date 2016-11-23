@@ -144,7 +144,7 @@ Security in Distributed Applications}
 		\item Server-side cached short-term keys (\alert{prekeys}) fetched by sender
 		\item Pairwise long-lived symmetric secret key between participants
 		\item Multiple messages without answer $\rightarrow$ perform KDF on \alert{chaining key}
-		\item ECDH: Curve25519, AES-CTR (no padding), AES-CBC (pkcs7 padding)
+		\item ECDH: Curve25519, AES-CTR (no padding), AES-CBC (PKCS7 padding)
 		\item HMAC-SHA256 for integrity
 		\item Future secrecy only if private keys are not leaked (duh!). Since private keys go into new shared keys during ratcheting, the attacker lacks material to compromise next key after obtaining current one.
 		\item Since shared keys are only deleted after messages are received, there is a window in which keys could be compromised before reception. 
@@ -159,7 +159,7 @@ Security in Distributed Applications}
 	\frametitle{Enter Threema}
 	Threema
 	\begin{itemize}
-		\item Gained polularity in Germany after Facebook purchased WhatsApp
+		\item Gained popularity in Germany after Facebook purchased WhatsApp
 		\item All promise -- no proof; first openly contemplating to OSS the code, later backing away from that statement
 		\item Interest in its inner workings
 	\end{itemize}
@@ -179,25 +179,37 @@ Security in Distributed Applications}
 		\begin{itemize}
 			\item Handling of TLS
 			\item Handling of keys and nonces
-			\item NaCl implentation errors
+			\item NaCl implementation errors
 			\item Uncommon data leaks
 			\item Bugs
 			\item \ldots?
 		\end{itemize}
 	\item Find out how protocol is designed
 		\begin{enumerate}
-			\item Understand handshakek
+			\item Understand handshakes
 			\item Understand protocol
 			\item decipher messages
 		\end{enumerate}
 \end{itemize}
-\alert{Positive sidenote}: Threema had released a security whie paper early on
+\alert{Positive side-note}: Threema had released a security white paper early on
+\end{frame}
+
+\begin{frame}
+	\frametitle{Threema - Notes and Open Questions}
+	Notes:
+	\begin{itemize}
+		\item PFS only on transport layer (attacker sniffing packets from the outside will not learn contents after private key acquisition)
+	\end{itemize}
+	Q:
+	\begin{itemize}
+		\item How often is the handshake performed?
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Threema Packet Format}
 
-	\includegraphics[page=1,clip,trim={2.6cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
+	\includegraphics[page=1,clip,trim={.99cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
 
 \end{frame}
 
@@ -212,24 +224,26 @@ Security in Distributed Applications}
 		\item Audio Messages
 			\begin{itemize}
 				\item Leak Android version
-				\item Possible stagefright vector
+				\item Possible StageFright vector
 			\end{itemize}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Threema Image Messages}
-	\includegraphics[page=4,clip,trim={2.6cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
+	\includegraphics[page=4,clip,trim={.99cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Threema Audio Messages}
-	\includegraphics[page=5,clip,trim={2.6cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
+	\includegraphics[page=5,clip,trim={.99cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Group Messages}
-	\includegraphics[page=6,clip,trim={2.6cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
+	\includegraphics[page=6,clip,trim={.99cm 7.5cm 3.2cm 1cm},width=\textwidth]{out/messages.pdf}
 \end{frame}
 
 \end{document}
+
+% vim: spelllang=en spell

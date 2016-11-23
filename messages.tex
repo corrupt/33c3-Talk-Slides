@@ -5,6 +5,7 @@
 ]{bytefield}
 \usepackage[]{graphicx}
 \usepackage{xcolor}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
 
 \usepackage{eso-pic}
 \AddToShipoutPicture{%
@@ -15,6 +16,7 @@
 
 \setlength{\parindent}{0pt}
 
+% I needed to cheat with rule heights a little to prevent seam lines
 \newcommand{\colorbitbox}[4][rltb]{%
 	\rlap{\bitbox[#1]{#3}{\color{#2}\rule{\width+.5pt}{\height+.5pt}}}%
 	\bitbox[#1]{#3}{#4}}
@@ -72,7 +74,7 @@
 \colorlet{MsgType}{OwlCyan}
 \colorlet{String}{OwlBlue}
 \colorlet{Size}{OwlBrown}
-\colorlet{GroupID}{OwlRed}
+\colorlet{GroupID}{OwlOrange}
 \colorlet{Blob}{OwlViolet}
 \colorlet{Padding}{OwlGreen}
 
@@ -238,7 +240,7 @@
 	\end{rightwordgroup}\\
 	\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize\bfseries{80}}} & \cbb{GroupID}{8}{Group ID} & \cbb{Blob}{16}{Blob ID} & \cbb{Size}{4}{Size} & \cbb{Key}{3}{} \\
 	\cbb{Key}{29}{Symmetric key} & \cbb[ltr]{Padding}{3}{}\\
-	\cwb[lbr]{Padding}{1}{Variable-length Padding}\\
+	\cbb[lbt]{Padding}{29}{\hspace{3em}Variable-length Padding} & \cbb[rb]{Padding}{3}{}\\
 \end{bytefield}
 
 \section*{Create/Update Group (members)}
@@ -248,7 +250,8 @@
 		\header[!10!lightgray]
 	\end{rightwordgroup}\\
 	\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize\bfseries 74}} & \cbb{GroupID}{8}{Group ID} & \cbb[ltr]{ThreemaID}{23}{} \\
-	\cwb[lbr]{ThreemaID}{1}{\raisebox{2em}{Group Members}}\\
+	\cbb[ltb]{ThreemaID}{9}{} & \cbb[rb]{ThreemaID}{23}{\raisebox{2em}{Group Members}}\\
+	%\cwb[lbr]{ThreemaID}{1}{\raisebox{2em}{Group Members}}\\
 \end{bytefield}
 
 
@@ -258,6 +261,47 @@
 	\bitheader{0-31}\\
 	\cbb{Size}{2}{\tiny Length} & \cbb{PktType}{4}{\scriptsize{Pkt Type}} & \cbb{ThreemaID}{8}{Sender} & \cbb{MsgID}{8}{Message ID}\\[.5em]
 \emptybox[]{2} & \cbb[lr]{defaultBg}{20}{$\longleftarrow$ \quad Length \quad $\longrightarrow$} 
+\end{bytefield}
+
+\section*{Client-Server Handshake}
+
+\subsection*{Client Hello}
+\begin{bytefield}{16}
+	\bitheader{0-15}\\
+	\cwb{Key}{2}{Ephemeral Client Public Key}\\
+	\cbb{Nonce}{16}{Nonce}\\
+\end{bytefield}
+
+\subsection*{Server Hello}
+\begin{bytefield}{16}
+	\bitheader{0-15}\\
+	\cbb{Nonce}{16}{Server Nonce Prefix} & \\
+	\begin{rightwordgroup}{Ciphertext}
+		\cwb{Key}{2}{Ephemeral Server Public Key} \\
+		\cbb{Nonce}{16}{Client Nonce Prefix} \\
+		\wordbox{1}{}
+	\end{rightwordgroup}
+\end{bytefield}
+
+\subsection*{Client Authentication Packet}
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Ciphertext}
+	\cbb{ThreemaID}{8}{Username} & \cbb{String}{24}{User Agent String} \\
+	\cbb{String}{8}{} & \cbb{Nonce}{16}{Server nonce Prefix} & \cbb{Nonce}{8}{}\\
+	\cbb{Nonce}{16}{Random Nonce} & \bitbox[lrt]{16}{} \\
+	\wordbox[rlb]{1}{Ciphertext (Ephemeral Client Public Key)}
+	\end{rightwordgroup}
+\end{bytefield}
+
+\subsection*{Server Acknowledgement}
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Ciphertext}
+		\cwb{String}{1}{Zeros}
+	\end{rightwordgroup}
 \end{bytefield}
 
 \end{document}
