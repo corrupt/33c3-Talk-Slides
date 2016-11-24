@@ -18,6 +18,7 @@
 \usepackage[]{graphicx}
 \usepackage[]{url}
 \usepackage[utf8]{inputenc}
+\usepackage[]{hyperref}
 
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
@@ -27,6 +28,8 @@
 %	fg=black!2,
 %	bg=mDarkTeal
 %}
+
+%-----8<------------8<------------8<------------8<------------8<------------8<------------
 
 \title{A look into the Mobile Messaging Black Box}
 \subtitle{\scriptsize{33rd Chaos Commmunication Congress \#33c3}}
@@ -39,6 +42,22 @@
 \institute{Hamburg University of Technology\\
 Security in Distributed Applications}
 % \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+
+%-----8<------------8<------------8<------------8<------------8<------------8<------------
+
+% stuff for arbitrary image placement
+% http://tex.stackexchange.com/questions/16357/how-can-i-position-an-image-in-an-arbitrary-position-in-beamer
+\tikzset{
+  corner node/.style={
+    anchor=south east,xshift=-.5cm,yshift=.5cm,
+  },
+}
+\def\tikzoverlay{%
+   \tikz[overlay,remember picture]\node[corner node]
+}%
+
+%-----8<------------8<------------8<------------8<------------8<------------8<------------
 
 \begin{document}
 
@@ -74,7 +93,13 @@ Security in Distributed Applications}
 		\item Your exchange is completely private
 	\end{itemize}
 	We call this \alert{confidentiality}
+
+	\tikzoverlay at (current page.south east){
+		\includegraphics[width=6cm]{img/conversation.pdf}
+	};
+
 \end{frame}
+
 
 \begin{frame}
 	\frametitle{In Sight of Each Other}
@@ -98,6 +123,7 @@ Security in Distributed Applications}
 
 \begin{frame}
 	\frametitle{It's a One-Time Talk}
+	\only<1>{%
 	Suppose somebody was present in the room with you	
 	\begin{itemize}
 		\item They could overhear your conversation
@@ -108,7 +134,13 @@ Security in Distributed Applications}
 	\begin{itemize}
 		\item[$\rightarrow$] They would also not learn anything about future conversations you might have
 	\end{itemize}
-	We call this \alert{future secrecy}
+	We call this \alert{future secrecy}}
+	\only<2>{%
+		Perfect Forward- and Future Secrecy\\
+		\begin{center}
+			\includegraphics[width=\textwidth]{img/pfs.pdf}
+		\end{center}
+	}
 \end{frame}
 
 \begin{frame}
@@ -122,6 +154,30 @@ Security in Distributed Applications}
 \end{frame}
 
 \section{Enter Messaging Services}
+
+\begin{frame}
+	\frametitle{Messaging}
+	\centering
+	\includegraphics[width=.75\textwidth]{img/messaging.pdf}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Messaging}
+	Parties involved
+	\begin{itemize}
+		\item Depending on the scenario, at least one additional party is involved, the messaging provider
+		\item push message provider might also be involved
+		\item In federated scenarios, multiple relaying parties may be involved
+		\item[$\Rightarrow$] Messaging solutions should be designed so as to minimized the data these parties may obtain
+	\end{itemize}
+	Problems:
+	\begin{itemize}
+		\item How to find your peers? (address book leakage)
+		\item How to relay messages to the recipient? (participation leakage)
+		\item Relay always knows the exact time a message was sent
+		\item Relay always knows the size of transmitted messages (padding helps)
+	\end{itemize}
+\end{frame}
 
 \begin{frame}
 	\frametitle{Traditional Messaging}
@@ -258,8 +314,9 @@ Security in Distributed Applications}
 	\end{tabular}\\[1em]
 	\alert{\rule{.75\textwidth}{1pt}}\\[1em]
 	\begin{tabular}{@{}ll}
-		Beamer Theme: & \alert{\hyperlink{https://github.com/matze/mtheme}{Metropolis}} by Matthias volgelsang\\
-		Color Theme: & \alert{\hyperlink{https://github.com/rchurchley/beamercolortheme-owl}{Owl}} by Ross Chirchley \\
+		Beamer Theme: & \alert{\href{https://github.com/matze/mtheme}{Metropolis}} by Matthias volgelsang\\
+		Color Theme: & \alert{\href{https://github.com/rchurchley/beamercolortheme-owl}{Owl}} by Ross Chirchley \\
+		Icons: & \alert{\href{https://thenounproject.com/mockturtle/collection/big/}{The BIG collection}} by Sergey Demushkin\\
 	\end{tabular}\\[3em]
 	Thanks to \textbf{Jan Ahrens} and \textbf{Philipp Berger} -- their work has made ours somewhat easier\\
 	Thanks to \textbf{Maximilian Köstler} for his initial work on Threema
