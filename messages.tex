@@ -193,7 +193,7 @@
 		\header[!10!lightgray]
 	\end{rightwordgroup}\\
 	\begin{rightwordgroup}{Ciphertext}
-		\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize\bfseries 0x02}} & \cbb{defaultBg}{2}{\rotatebox{45}{\tiny 0xFFFF}}
+		\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize\bfseries 0x02}} & \cbb{Size}{2}{\rotatebox{45}{\tiny Duration}}
 		\cbb{Blob}{16}{Blob ID} &
 		\cbb{Size}{4}{Size} & \cbb{Key}{9}{Key} \\
 		\cbb{Key}{23}{} & \cbb[lrt]{Padding}{9}{} \\
@@ -302,6 +302,35 @@
 	\begin{rightwordgroup}{Ciphertext}
 		\cwb{String}{1}{Zeros}
 	\end{rightwordgroup}
+\end{bytefield}
+
+\section*{PKCS7 Padding}
+\bfseries
+\begin{bytefield}[bitwidth=2em]{16}
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox[]{1}{} & \bitbox{1}{03} & \bitbox{1}{03} & \bitbox{1}{03} \\
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox{1}{04} & \bitbox{1}{04} & \bitbox{1}{04} & \bitbox{1}{04} \\
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox{1}{08} & \bitbox{1}{08} & \bitbox{1}{08} & \bitbox{1}{08} &
+	\bitbox{1}{08} & \bitbox{1}{08} & \bitbox{1}{08} & \bitbox{1}{08} \\
+	\bitbox{1}{16} & \bitbox{1}{16} & \bitbox{1}{16} & \bitbox{1}{16} &
+	\bitbox{1}{16} & \bitbox{1}{16} & \bitbox{1}{16} & \bitbox{1}{16} &
+	\bitbox{1}{16} & \bitbox{1}{16} & \bitbox{1}{16} & \bitbox{1}{16} &
+	\bitbox{1}{16} & \bitbox{1}{16} & \bitbox{1}{16} & \bitbox{1}{16} \\
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox{1}{05} &
+	\bitbox{1}{05} & \bitbox{1}{05} & \bitbox{1}{05} & \bitbox{1}{05} \\
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
+	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox{1}{06} & \bitbox{1}{06} &
+	\bitbox{1}{06} & \bitbox{1}{06} & \bitbox{1}{06} & \bitbox{1}{06} \\
 \end{bytefield}
 
 \end{document}

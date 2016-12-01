@@ -1,4 +1,7 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass[
+	aspectratio=169,
+	xetex,
+]{beamer}
 
 \usetheme[
 	%titleformat=smallcaps,
@@ -17,11 +20,25 @@
 \usepgfplotslibrary{dateplot}
 \usepackage[]{graphicx}
 \usepackage[]{url}
-\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc} % only needed if not using xetex
 \usepackage[]{hyperref}
+\usepackage[english]{babel}
 
-\usepackage{xspace}
-\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+%-----8<------------8<------------8<------------8<------------8<------------8<------------
+
+\newfontfamily\fontfoundation[
+    Path=fonts/
+]{foundation-icons.ttf}
+\newlength\fsize
+\newcommand*\icon[3]{{
+	\setlength\fsize{#2pt}%
+	\fontsize{\fsize}{#3\fsize}\fontfoundation{#1}
+}}
+
+\newcommand\icontwitter[2][1.2]{\icon{}{#2}{#1}}
+\newcommand\iconmail[2][1.2]{\icon{}{#2}{#1}}
+
+%-----8<------------8<------------8<------------8<------------8<------------8<------------
 
 %% When using Metropolis
 %\setbeamercolor{frametitle}{%
@@ -35,9 +52,17 @@
 \subtitle{\scriptsize{33$^{\mathsf{rd}}$ Chaos Commmunication Congress \#33c3}}
 \date{\today}
 \author{
-	\parbox[t]{1.2in}{Roland Schilling}{\scriptsize{\texttt{@NerdingByDoing}}}\\
-	\parbox[t]{1.2in}{Frieder Steinmetz}{\scriptsize{\texttt{@twillnix}}}
+	\parbox[t]{1.2in}{Roland Schilling}{\scriptsize{\ttfamily @NerdingByDoing}}\\
+	\parbox[t]{1.2in}{Frieder Steinmetz}{\scriptsize{\ttfamily @twillnix}}
 }
+
+\makeatletter
+\hypersetup{
+	pdfauthor=Roland Schilling \& Frieder Steinmetz,
+    pdftitle={\@title},
+    pdfsubject={Mobile Instant Messaging},
+    pdfkeywords={Signal} {Threema} {33c3} {messaging} {reverse-engineering},
+}\makeatother
 
 \institute{Hamburg University of Technology\\
 Security in Distributed Applications}
@@ -106,7 +131,7 @@ Security in Distributed Applications}
 	The room you're in is small enough that you can always see each other
 	\begin{itemize}
 		\item You know that the words you speak are received just as you spoke them
-		\item There is no way either of you hears something else that the other says
+		\item There is no way either of you hears something other than the other says
 	\end{itemize}
 	We call this \alert{integrity}
 \end{frame}
@@ -192,6 +217,18 @@ Security in Distributed Applications}
 		\item could store all messages and use them as proof of the exchange: \alert{no deniability}
 	\end{itemize}
 	Messaging translates badly to our offline communication expectation
+\end{frame}
+
+\begin{frame}
+	\frametitle{confidentiality}
+	\centering
+	\includegraphics[width=.8\textwidth]{img/confidentiality.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Deniability}
+	\centering
+	\includegraphics[width=.8\textwidth]{img/deniability-letter.pdf}
 \end{frame}
 
 \section{Case Study - Signal}
@@ -298,28 +335,53 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
+	\frametitle{Threema Audio Messages -- Notes}
+	\begin{itemize}
+		\item Audio length is lost on forwarding
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Group Messages}
 	\includegraphics[page=6,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
 \end{frame}
 
 \begin{frame}
+	\frametitle{Group Messages}
+	\begin{itemize}
+		\item Group IDs aren't unique. They are created locally and only work together with the group creator's ID
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[plain]
 	\frametitle{Done!}
-	\Huge{Thank You!}
-	%\alert{\rule{\textwidth}{1pt}}\\[2em]
-	\\[2em]
-	\scriptsize
-	\begin{tabular}{@{}lll}
-		Roland Schilling & \url{@NerdingByDoing} & \url{schilling@tuhh.de} \\
-		Frieder Steinmetz & \url{@twillnix} & \url{frieder.steinmetz@tuhh.de} \\
-	\end{tabular}\\[1em]
+	{\Huge\bfseries Thank You!} \\[2em]
+	\begin{columns}[t]
+		\begin{column}[t]{.3\textwidth}
+			\textbf{Roland Schilling}\\[.8ex]
+			\begin{tabular}{rl}
+				\parbox[c]{1ex}{\iconmail{15}}    & \scriptsize{\url{schilling@tuhh.de}}\\
+				\parbox[c]{1ex}{\icontwitter{15}} & \scriptsize{\url{@NerdingByDoing}}\\
+			\end{tabular}
+		\end{column}
+		\begin{column}[t]{.635\textwidth}
+			\textbf{Frieder Steinmetz\phantom{g}}\\[.8ex] %phantom-g because \\ doesn't align to baseline
+			\begin{tabular}{rl}
+				\parbox[c]{1ex}{\iconmail{15}}    & \scriptsize{\url{frieder.steinmetz@tuhh.de}}\\
+				\parbox[c]{1ex}{\icontwitter{15}} & \scriptsize{\url{@twillnix}}\\
+			\end{tabular}
+		\end{column}
+	\end{columns}
 	\alert{\rule{.75\textwidth}{1pt}}\\[1em]
+	\scriptsize
 	\begin{tabular}{@{}ll}
 		Beamer Theme: & \alert{\href{https://github.com/matze/mtheme}{Metropolis}} by Matthias volgelsang\\
 		Color Theme: & \alert{\href{https://github.com/rchurchley/beamercolortheme-owl}{Owl}} by Ross Chirchley \\
 		Icons: & \alert{\href{https://thenounproject.com/mockturtle/collection/big/}{The BIG collection}} by Sergey Demushkin\\
-	\end{tabular}\\[3em]
-	Thanks to \textbf{Jan Ahrens} and \textbf{Philipp Berger} -- their work has made ours somewhat easier\\
-	Thanks to \textbf{Maximilian Köstler} for his initial work on Threema
+		 & \alert{\href{http://zurb.com/playground/foundation-icon-fonts-3}{Foundation Icon Fonts 3}} by ZURB\\
+	\end{tabular}\\[2em]
+	Thanks to \alert{Jan Ahrens} and \alert{Philipp Berger} -- their work has made ours somewhat easier\\
+	Thanks to \alert{Maximilian Köstler} for his initial work on Threema
 
 \end{frame}
 
