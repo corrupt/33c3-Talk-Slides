@@ -182,26 +182,26 @@ Security in Distributed Applications}
 
 \begin{frame}
 	\frametitle{Messaging}
-	\centering
-	\includegraphics[width=.75\textwidth]{img/messaging.pdf}	
-\end{frame}
-
-\begin{frame}
-	\frametitle{Messaging}
-	Parties involved
-	\begin{itemize}
-		\item Depending on the scenario, at least one additional party is involved, the messaging provider
-		\item push message provider might also be involved
-		\item In federated scenarios, multiple relaying parties may be involved
-		\item[$\Rightarrow$] Messaging solutions should be designed so as to minimized the data these parties may obtain
-	\end{itemize}
-	Problems:
-	\begin{itemize}
-		\item How to find your peers? (address book leakage)
-		\item How to relay messages to the recipient? (participation leakage)
-		\item Relay always knows the exact time a message was sent
-		\item Relay always knows the size of transmitted messages (padding helps)
-	\end{itemize}
+	\only<1>{%
+		\centering
+		\includegraphics[width=.75\textwidth]{img/messaging.pdf}	
+	}
+	\only<2>{%
+		Parties involved
+		\begin{itemize}
+			\item Depending on the scenario, at least one additional party is involved, the messaging provider
+			\item push message provider might also be involved
+			\item In federated scenarios, multiple relaying parties may be involved
+			\item[$\Rightarrow$] Messaging solutions should be designed so as to minimized the data these parties may obtain
+		\end{itemize}
+		Problems:
+		\begin{itemize}
+			\item How to find your peers? (address book leakage)
+			\item How to relay messages to the recipient? (participation leakage)
+			\item Relay always knows the exact time a message was sent
+			\item Relay always knows the size of transmitted messages (padding helps)
+		\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}
@@ -220,7 +220,7 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
-	\frametitle{confidentiality}
+	\frametitle{Confidentiality}
 	\centering
 	\includegraphics[width=.8\textwidth]{img/confidentiality.pdf}
 \end{frame}
@@ -229,6 +229,69 @@ Security in Distributed Applications}
 	\frametitle{Deniability}
 	\centering
 	\includegraphics[width=.8\textwidth]{img/deniability-letter.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The Shortest Introduction to Encryption You Will Ever Get}
+	\begin{overprint}
+		\onslide<1->{
+			Symmetric Encryption:\\
+			\quad\small\alert{$\rightarrow$} Encryption and decryption  with the same key
+			\begin{center}
+				\only<1>{\includegraphics[width=.8\textwidth]{img/symmetric_crypto-1.pdf}\\[2ex]}
+				\only<2->{\includegraphics[width=.8\textwidth]{img/symmetric_crypto.pdf}\\[2ex]}
+			\end{center}
+		}
+		\onslide<3->{
+			Asymmetric Encryption:\\
+			\quad\small\alert{$\rightarrow$} Encryption and decryption with different keys
+			\begin{center}
+				\only<3>{\includegraphics[width=.8\textwidth]{img/asymmetric_crypto.pdf}}
+				\only<4>{\includegraphics[width=.8\textwidth]{img/asymmetric_crypto-2.pdf}}
+			\end{center}
+		}
+	\end{overprint}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Public-Key Cryptography -- In a Nutshell}
+	\begin{center}
+		\only<1-2>{
+		\includegraphics[width=\textwidth]{img/alice-bob-pki.pdf}
+	}
+	\only<3>{
+		\includegraphics[width=\textwidth]{img/pki-msg-exchange.pdf}
+	}
+	\end{center}
+	\pause
+	\begin{itemize}
+		\item Both parties publish their identities and public keys
+		\item Any message can be encrypted with anyone's public key and only be decrypted with its corresponding secret key
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Key Management}
+	\only<1>{%
+		\centering
+		\begin{block}{}
+			Cryptography is rarely, if ever, the solution to a security problem. Cryptography is a translation mechanism, usually converting a communications security problem into a key management problem.\\
+			\hfill ---Dieter Gollmann
+		\end{block}
+	}
+	\only<2>{
+		\begin{itemize}
+			\item identity keys stored on devices, what if stolen
+			\item keys for back-end communication layer hard-coded, almost impossible to replace
+			\item how to deal with key compromise? (answer: key rotation)
+		\end{itemize}
+	}
+	\only<3>{
+		\centering
+		\includegraphics[width=.9\textwidth]{img/identity-query.pdf}
+	}
 \end{frame}
 
 \section{Case Study - Signal}
