@@ -257,13 +257,14 @@ Security in Distributed Applications}
 	\frametitle{Public-Key Cryptography -- In a Nutshell}
 	\begin{center}
 		\only<1-2>{
-		\includegraphics[width=\textwidth]{img/alice-bob-pki.pdf}
-	}
-	\only<3>{
-		\includegraphics[width=\textwidth]{img/pki-msg-exchange.pdf}
-	}
+			\includegraphics[width=\textwidth]{img/alice-bob-pki.pdf}
+		}
+		\only<3>{
+			\includegraphics[width=\textwidth]{img/pki-msg-exchange.pdf}
+		}
 	\end{center}
-	\pause
+	\onslide<2->
+
 	\begin{itemize}
 		\item Both parties publish their identities and public keys
 		\item Any message can be encrypted with anyone's public key and only be decrypted with its corresponding secret key
@@ -292,6 +293,24 @@ Security in Distributed Applications}
 		\centering
 		\includegraphics[width=.9\textwidth]{img/identity-query.pdf}
 	}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Authenticity}
+	\begin{itemize}
+		\item How to connect a key to a person?
+			\begin{itemize}
+				\item[$\rightarrow$] Key signing (PGP)
+				\item[$\rightarrow$] Certificates (trusted third party)
+				\item[$\rightarrow$] Service directory (based on phone numbers or email addresses)
+			\end{itemize}
+		\item How to deal with changing keys?
+			\begin{itemize}
+				\item warnings are annoying
+				\item Threema's traffic light system encourages authentication but doesn't 
+			\end{itemize}
+
+	\end{itemize}
 \end{frame}
 
 \section{Case Study - Signal}
@@ -365,6 +384,11 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
+	\frametitle{Threema architecture}
+	Image outlining the whole architecture, e2e, REST, file upload, user authentication, account management, etc..
+\end{frame}
+
+\begin{frame}
 	\frametitle{Threema Packet Format}
 
 	\includegraphics[page=1,clip,trim={.99cm 8cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
@@ -413,6 +437,7 @@ Security in Distributed Applications}
 	\frametitle{Group Messages}
 	\begin{itemize}
 		\item Group IDs aren't unique. They are created locally and only work together with the group creator's ID
+		\item The structure of group messages makes it impossible for Threema to introduce multiple group administrators on a protocol level without breaking compatibility to older clients
 	\end{itemize}
 \end{frame}
 
