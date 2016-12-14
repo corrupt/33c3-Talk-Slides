@@ -1,7 +1,12 @@
 \documentclass[
 	aspectratio=169,
 	xetex,
+	%notes,
 ]{beamer}
+%\usepackage{pgfpages}
+%\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen=bottom}
+\usepackage{pdfcomment}
 
 \usetheme[
 	%titleformat=smallcaps,
@@ -160,6 +165,7 @@ Security in Distributed Applications}
 		\item[$\rightarrow$] They would also not learn anything about future conversations you might have
 	\end{itemize}
 	We call this \alert{future secrecy}}
+	\pdfcomment{Future Secrecy is also called post-compromise security}
 	\only<2>{%
 		Perfect Forward- and Future Secrecy\\
 		\begin{center}
@@ -207,16 +213,26 @@ Security in Distributed Applications}
 \begin{frame}
 	\frametitle{Traditional Messaging}
 	What if this conversation had taken place via SMS?\\[1em]
-	Your providers
-	\begin{itemize}
-		\item would know the contents of your exchange: \alert{no confidentiality}
-		\item could change the contents of your exchange: \alert{no integrity}
-		\item could reroute your messages and impersonate either of you: \alert{no authentication}
-		\item would know all messages you ever exchanged: \alert{no forward Secrecy}
-		\item would know all messages exchanged in the future: \alert{no future secrecy}
-		\item could store all messages and use them as proof of the exchange: \alert{no deniability}
-	\end{itemize}
-	Messaging translates badly to our offline communication expectation
+	\begin{minipage}[t][.7\textheight]{\textwidth}
+		\only<1>{
+			Your providers
+			\begin{itemize}
+				\item would know the contents of your exchange: \alert{no confidentiality}
+				\item could change the contents of your exchange: \alert{no integrity}
+				\item could reroute your messages and impersonate either of you: \alert{no authentication}
+				\item would know all messages you ever exchanged: \alert{no forward Secrecy}
+				\item would know all messages exchanged in the future: \alert{no future secrecy}
+				\item could store all messages and use them as proof of the exchange: \alert{no deniability}
+			\end{itemize}
+		}
+		\only<2>{
+			Other people with access to the network		
+			\begin{itemize}
+				\item alsdfkj
+			\end{itemize}
+		}
+	\end{minipage}
+	\only<1->{$\rightarrow$ Messaging translates badly to our offline communication expectation}
 \end{frame}
 
 \begin{frame}
@@ -225,23 +241,20 @@ Security in Distributed Applications}
 	\includegraphics[width=.8\textwidth]{img/confidentiality.pdf}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Deniability}
-	\centering
-	\includegraphics[width=.8\textwidth]{img/deniability-letter.pdf}
-\end{frame}
-
-\begin{frame}
+\begin{frame}[t]
+	%weird constructs on this slide to prevent image jumping on overlay stepping
 	\frametitle{The Shortest Introduction to Encryption You Will Ever Get}
-	\begin{overprint}
+		\vspace{-1ex}
 		\onslide<1->{
-			Symmetric Encryption:\\
-			\quad\small\alert{$\rightarrow$} Encryption and decryption  with the same key
-			\begin{center}
-				\only<1>{\includegraphics[width=.8\textwidth]{img/symmetric_crypto-1.pdf}\\[2ex]}
-				\only<2->{\includegraphics[width=.8\textwidth]{img/symmetric_crypto.pdf}\\[2ex]}
-			\end{center}
-		}
+			\begin{minipage}[t][.46\textheight]{\textwidth}
+				Symmetric Encryption:\\
+				\quad\small\alert{$\rightarrow$} Encryption and decryption  with the same key
+				\begin{center}
+					\only<1>{\includegraphics[width=.8\textwidth]{img/symmetric_crypto-1.pdf}\\[2ex]}
+					\only<2->{\includegraphics[width=.8\textwidth]{img/symmetric_crypto.pdf}\\[2ex]}
+				\end{center}
+		\end{minipage}
+			}
 		\onslide<3->{
 			Asymmetric Encryption:\\
 			\quad\small\alert{$\rightarrow$} Encryption and decryption with different keys
@@ -250,20 +263,23 @@ Security in Distributed Applications}
 				\only<4>{\includegraphics[width=.8\textwidth]{img/asymmetric_crypto-2.pdf}}
 			\end{center}
 		}
-	\end{overprint}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Public-Key Cryptography -- In a Nutshell}
-	\begin{center}
-		\only<1-2>{
-			\includegraphics[width=\textwidth]{img/alice-bob-pki.pdf}
-		}
-		\only<3>{
-			\includegraphics[width=\textwidth]{img/pki-msg-exchange.pdf}
-		}
-	\end{center}
-	\onslide<2->
+	\vspace{3mm}
+	\begin{minipage}[t][.65\textheight]{\textwidth}
+		\begin{center}
+			\only<1-2>{
+				\includegraphics[width=\textwidth]{img/alice-bob-pki.pdf}\\[1.5em]
+				\onslide<2>{\includegraphics[width=.7\textwidth]{img/asymmetric_crypto-2.pdf}}
+			}
+			\only<3>{
+				\includegraphics[width=\textwidth]{img/pki-msg-exchange.pdf}
+			}
+		\end{center}
+	%\onslide<3->
+	\end{minipage}
 
 	\begin{itemize}
 		\item Both parties publish their identities and public keys
@@ -272,6 +288,12 @@ Security in Distributed Applications}
 
 \end{frame}
 
+\begin{frame}
+	\frametitle{Deniability}
+	\centering
+	\includegraphics[width=.8\textwidth]{img/deniability-letter.pdf}
+	\pdfcomment{Public-Key Authenticators einfach erklären für Deniability}
+\end{frame}
 
 \begin{frame}
 	\frametitle{Key Management}
@@ -302,7 +324,7 @@ Security in Distributed Applications}
 			\begin{itemize}
 				\item[$\rightarrow$] Key signing (PGP)
 				\item[$\rightarrow$] Certificates (trusted third party)
-				\item[$\rightarrow$] Service directory (based on phone numbers or email addresses)
+				\item[$\rightarrow$] (Messenger-)service-based directory (based on phone numbers or email addresses)
 			\end{itemize}
 		\item How to deal with changing keys?
 			\begin{itemize}
@@ -311,6 +333,63 @@ Security in Distributed Applications}
 			\end{itemize}
 
 	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Metadata Handling}
+	\only<1>{%
+		Everybody on the network can see:
+		\begin{itemize}
+			\item\alert{the sender} of the message
+			\item\alert{the intended receiver} of the message
+				\pdfcomment{They can also log the time and the size of the messages}
+		\end{itemize}
+		\begin{center}\includegraphics[width=5cm]{img/metadata-leak.pdf}\end{center}
+	}
+	\only<2>{
+		Solution: wrap encrypted message in a second layer of encryption and address it only to the message server.
+		\begin{center}
+			\includegraphics[width=.8\textwidth]{img/transport-layer-encryption.pdf}
+		\end{center}
+	}
+	\only<3>{
+		\begin{center}
+			\includegraphics[width=.8\textwidth]{img/everybody-sends.pdf}
+		\end{center}
+	}
+	\only<4>{
+		\begin{center}
+			\includegraphics[width=.8\textwidth]{img/transport-layer-encryption-forwarding.pdf}
+		\end{center}
+	}
+	\only<5>{
+		The message server will remove the outer layer and add a new one, targeted at the receiver.
+		\begin{center}
+			\includegraphics[width=.8\textwidth]{img/transport-layer-encryption-receiving.pdf}
+		\end{center}
+	}
+	\only<6>{
+		This leaves us with an encrypted \alert{end-to-end tunnel}, transmitted through two \alert{transport layer} encryption tunnels.\\
+		\vspace{1cm}
+		\begin{center}
+			\includegraphics[width=\textwidth]{img/2-layer-tunnel.pdf}
+		\end{center}
+		\vspace{1cm}
+		\alert{The message server still knows both communication partners!}
+	}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sending an Image Message}
+	\-\\[2em]
+	\begin{overlayarea}{\textwidth}{\textheight}
+		\only<1>{\includegraphics[width=\textwidth]{img/threema-architecture-1.pdf}}
+		\only<2>{\includegraphics[width=\textwidth]{img/threema-architecture-2.pdf}}
+		\only<3>{\includegraphics[width=\textwidth]{img/threema-architecture-3.pdf}}
+		\only<4>{\includegraphics[width=\textwidth]{img/threema-architecture-4.pdf}}
+		\only<5>{\includegraphics[width=\textwidth]{img/threema-architecture-5.pdf}}
+		\only<6>{\includegraphics[width=\textwidth]{img/threema-architecture.pdf}}
+	\end{overlayarea}
 \end{frame}
 
 \section{Case Study - Signal}
@@ -383,10 +462,58 @@ Security in Distributed Applications}
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Threema architecture}
-	Image outlining the whole architecture, e2e, REST, file upload, user authentication, account management, etc..
+\begin{frame}[t]
+	\frametitle{Threema's App-to-Server Handshake}
+	\begin{overlayarea}{\textwidth}{\textheight}
+		\begin{columns}
+			\begin{column}[t]{.3\textwidth}
+				\only<1>{\includegraphics[width=\textwidth]{img/handshake.pdf}}	
+				\only<2>{\includegraphics[width=\textwidth]{img/handshake-1.pdf}}	
+				\only<3>{\includegraphics[width=\textwidth]{img/handshake-2.pdf}}	
+				\only<4>{\includegraphics[width=\textwidth]{img/handshake-3.pdf}}	
+				\only<5>{\includegraphics[width=\textwidth]{img/handshake-4.pdf}}	
+			\end{column}
+			\begin{column}[t]{.01\textwidth}
+			%padding
+			\end{column}
+			\begin{column}[t]{.69\textwidth}
+				\-\\%invisible line break
+				\only<1>{%
+					Initial Text goes here
+				}
+				\only<2>{%
+					{\large Client Hello Packet}\\[1ex]
+					\includegraphics[page=11,clip,trim={.99cm 9cm 3.2cm 2.55cm},width=\textwidth]{out/messages.pdf}
+					\begin{itemize}
+						\item Text goes here
+					\end{itemize}
+				}	
+				\only<3>{%
+					{\large Server Hello Packet}\\[1ex]
+					\includegraphics[page=11,clip,trim={.99cm 3.5cm 3.2cm 6.9cm},width=\textwidth]{out/messages.pdf}
+					\begin{itemize}
+						\item Text goes here
+					\end{itemize}
+				}	
+				\only<4>{%
+					{\large Client Authentication Packet}\\[1ex]
+					\includegraphics[page=12,clip,trim={.99cm 10cm 3.2cm 1.5cm},width=\textwidth]{out/messages.pdf}
+					\begin{itemize}
+						\item Text goes here
+					\end{itemize}
+				}	
+				\only<5>{%
+					{\large Client Authentication Packet}\\[1ex]
+					\includegraphics[page=12,clip,trim={.99cm 7cm 3.2cm 6.2cm},width=\textwidth]{out/messages.pdf}
+					\begin{itemize}
+						\item Text goes here
+					\end{itemize}
+				}	
+			\end{column}
+		\end{columns}
+	\end{overlayarea}
 \end{frame}
+
 
 \begin{frame}
 	\frametitle{Threema Packet Format}
@@ -437,7 +564,7 @@ Security in Distributed Applications}
 	\frametitle{Group Messages}
 	\begin{itemize}
 		\item Group IDs aren't unique. They are created locally and only work together with the group creator's ID
-		\item The structure of group messages makes it impossible for Threema to introduce multiple group administrators on a protocol level without breaking compatibility to older clients
+		\item The structure of group messages makes it impossible for Threema to introduce multiple group administrators on a protocol level without breaking compatibility to older clients.
 	\end{itemize}
 \end{frame}
 

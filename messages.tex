@@ -269,7 +269,7 @@
 \begin{bytefield}{16}
 	\bitheader{0-15}\\
 	\cwb{Key}{2}{Ephemeral Client Public Key}\\
-	\cbb{Nonce}{16}{Nonce}\\
+	\cbb{Nonce}{16}{Client Nonce Prefix}\\
 \end{bytefield}
 
 \subsection*{Server Hello}
@@ -288,7 +288,7 @@
 \begin{bytefield}{32}
 	\bitheader{0-31}\\
 	\begin{rightwordgroup}{Ciphertext}
-	\cbb{ThreemaID}{8}{Username} & \cbb{String}{24}{User Agent String} \\
+	\cbb{ThreemaID}{8}{Threema ID} & \cbb{String}{24}{User Agent String} \\
 	\cbb{String}{8}{} & \cbb{Nonce}{16}{Server nonce Prefix} & \cbb{Nonce}{8}{}\\
 	\cbb{Nonce}{16}{Random Nonce} & \bitbox[lrt]{16}{} \\
 	\wordbox[rlb]{1}{Ciphertext (Ephemeral Client Public Key)}

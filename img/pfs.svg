@@ -8,6 +8,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="90.89576mm"
@@ -162,7 +163,7 @@
     <linearGradient
        id="linearGradient4168"
        osb:paint="solid"
-       gradientTransform="matrix(8.2252965,0,0,1,-3940.2902,-21.428571)">
+       gradientTransform="matrix(8.2252965,0,0,1,-3940.2902,-14.285713)">
       <stop
          style="stop-color:#f29318;stop-opacity:1;"
          offset="0"
@@ -171,7 +172,7 @@
     <linearGradient
        id="linearGradient4162"
        osb:paint="solid"
-       gradientTransform="matrix(0.00462165,0,0,0.81083045,295.20624,249.95531)">
+       gradientTransform="matrix(0.00462165,0,0,0.71833843,295.20624,234.99085)">
       <stop
          style="stop-color:#0098e9;stop-opacity:1;"
          offset="0"
@@ -180,7 +181,7 @@
     <linearGradient
        id="linearGradient4156"
        osb:paint="solid"
-       gradientTransform="translate(-128.21429,-12.5)">
+       gradientTransform="matrix(1,0,0,0.88592927,-128.21429,2.4740071)">
       <stop
          style="stop-color:#5aa800;stop-opacity:1;"
          offset="0"
@@ -195,6 +196,36 @@
          offset="0"
          id="stop4152" />
     </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4376"
+       id="linearGradient27312"
+       gradientTransform="scale(2.7917118,0.35820316)"
+       x1="45.542943"
+       y1="384.0649"
+       x2="59.531802"
+       y2="384.0649"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4376"
+       id="linearGradient27314"
+       gradientTransform="scale(2.7917118,0.35820316)"
+       x1="45.542943"
+       y1="384.0649"
+       x2="59.531802"
+       y2="384.0649"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4376"
+       id="linearGradient27479"
+       gradientTransform="matrix(2.6513612,0,0,0.37716476,2.8785974,0)"
+       x1="80.310264"
+       y1="596.93333"
+       x2="104.88838"
+       y2="596.93333"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -204,18 +235,18 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="194.52464"
-     inkscape:cy="49.425425"
+     inkscape:cx="150.74765"
+     inkscape:cy="103.7429"
      inkscape:document-units="px"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="layer1"
      showgrid="false"
      fit-margin-top="1"
      fit-margin-left="1"
      fit-margin-right="1"
      fit-margin-bottom="1"
-     inkscape:window-width="1916"
-     inkscape:window-height="1196"
-     inkscape:window-x="1200"
+     inkscape:window-width="1920"
+     inkscape:window-height="1200"
+     inkscape:window-x="3120"
      inkscape:window-y="0"
      inkscape:window-maximized="0" />
   <metadata
@@ -226,7 +257,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -248,16 +279,16 @@
            style="stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
          id="flowPara4182">Key</flowPara></flowRoot>    <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4376);fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="212.66331"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient27479);fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="248.12465"
        y="232.36221"
        id="text4184"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="212.66331"
+         x="248.12465"
          y="232.36221"
          id="tspan4192"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none">key compromised</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';text-align:center;text-anchor:middle;fill:url(#linearGradient27479);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none">key compromise</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4376);fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -296,24 +327,25 @@
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
+    <rect
+       style="opacity:1;fill:url(#linearGradient4162);fill-opacity:1;stroke:url(#linearGradient4162);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4136"
+       width="314.98495"
+       height="29.782827"
+       x="90.900368"
+       y="115.19807" />
     <g
-       id="g6216">
-      <rect
-         y="115.19807"
-         x="90.900368"
-         height="29.782827"
-         width="314.98495"
-         id="rect4136"
-         style="opacity:1;fill:url(#linearGradient4162);fill-opacity:1;stroke:url(#linearGradient4162);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+       id="g27470"
+       transform="translate(2,-1.4949238)">
       <text
          sodipodi:linespacing="125%"
          id="text4394"
-         y="142.87471"
+         y="142.74493"
          x="92.698944"
          style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:7.5px;fill:url(#linearGradient4376);-inkscape-font-specification:'CMU Sans Serif Medium';font-family:'CMU Sans Serif';font-weight:500;font-style:normal;font-stretch:normal;font-variant:normal"
-           y="142.87471"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)"
+           y="142.74493"
            x="92.698944"
            id="tspan4396"
            sodipodi:role="line">timeline</tspan></text>
@@ -323,7 +355,7 @@
          inkscape:connector-type="polyline"
          id="path5717"
          d="m 127.14277,140.07869 37.14285,0"
-         style="fill:url(#linearGradient4376);fill-rule:evenodd;stroke:url(#linearGradient4376);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+         style="fill:url(#linearGradient27312);fill-rule:evenodd;stroke:url(#linearGradient27314);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
     </g>
   </g>
   <g
@@ -332,62 +364,55 @@
      inkscape:label="messages"
      style="display:inline"
      transform="translate(-87.357056,-104.17604)">
-    <g
-       id="g5701">
-      <rect
-         style="opacity:1;fill:url(#linearGradient4156);fill-opacity:1;stroke:url(#linearGradient4162);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="rect4324"
-         width="314.98495"
-         height="15.497112"
-         x="90.900368"
-         y="118.76949" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text4327"
-         y="130.70656"
-         x="92.219208"
-         style="font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-size:7.5px;fill:url(#linearGradient4376);-inkscape-font-specification:'CMU Sans Serif Medium';font-family:'CMU Sans Serif';font-weight:500;font-style:normal;font-stretch:normal;font-variant:normal"
-           y="130.70656"
-           x="92.219208"
-           id="tspan4329"
-           sodipodi:role="line">secure messages</tspan></text>
-    </g>
+    <rect
+       y="118.76949"
+       x="90.900368"
+       height="13.729345"
+       width="314.98495"
+       id="rect4324"
+       style="opacity:1;fill:url(#linearGradient4156);fill-opacity:1;stroke:url(#linearGradient4162);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="94.219208"
+       y="127.4743"
+       id="text4327"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4329"
+         x="94.219208"
+         y="127.4743"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)">secure messages</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="compromised messages"
      transform="translate(-87.357056,-104.17604)">
-    <g
-       id="g4294"
-       transform="translate(0,3.5714293)">
-      <rect
-         style="opacity:1;fill:url(#linearGradient4168);fill-opacity:1;stroke:url(#linearGradient4168);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="rect4212"
-         width="61.413528"
-         height="22.639969"
-         x="247.32893"
-         y="115.19807" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text5711"
-         y="124.90298"
-         x="254.91512"
-         style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)"
-           y="124.90298"
-           x="254.91512"
-           id="tspan5713"
-           sodipodi:role="line">compromised</tspan><tspan
-           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)"
-           id="tspan5715"
-           y="134.27798"
-           x="254.91512"
-           sodipodi:role="line">messages</tspan></text>
-    </g>
+    <rect
+       y="118.76949"
+       x="247.32893"
+       height="22.639969"
+       width="61.413528"
+       id="rect4212"
+       style="opacity:1;fill:url(#linearGradient4168);fill-opacity:1;stroke:url(#linearGradient4168);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="257.79062"
+       y="127.33698"
+       id="text5711"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5713"
+         x="257.79062"
+         y="127.33698"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)">compromised</tspan><tspan
+         sodipodi:role="line"
+         x="257.79062"
+         y="136.71198"
+         id="tspan5715"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)">messages</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
