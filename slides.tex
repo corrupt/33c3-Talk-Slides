@@ -93,7 +93,7 @@ Security in Distributed Applications}
 
 \maketitle
 
-\section{Introduction}
+%\section{Introduction}
 
 \begin{frame}
 	\frametitle{Messaging - An Analogy}
@@ -167,7 +167,7 @@ Security in Distributed Applications}
 	We call this \alert{future secrecy}}
 	\pdfcomment{Future Secrecy is also called post-compromise security}
 	\only<2>{%
-		Perfect Forward- and Future Secrecy\\
+		Perfect Forward- and Future Secrecy\\\pdfcomment{Diese Folie muss an eine andere Stelle wandern}
 		\begin{center}
 			\includegraphics[width=\textwidth]{img/pfs.pdf}
 		\end{center}
@@ -184,7 +184,7 @@ Security in Distributed Applications}
 	We call this \alert{deniability}
 \end{frame}
 
-\section{Enter Messaging Services}
+%\section{Enter Messaging Services}
 
 \begin{frame}
 	\frametitle{Messaging}
@@ -215,7 +215,7 @@ Security in Distributed Applications}
 	What if this conversation had taken place via SMS?\\[1em]
 	\begin{minipage}[t][.7\textheight]{\textwidth}
 		\only<1>{
-			Your providers
+			Your providers (and other people on the same network)
 			\begin{itemize}
 				\item would know the contents of your exchange: \alert{no confidentiality}
 				\item could change the contents of your exchange: \alert{no integrity}
@@ -225,14 +225,21 @@ Security in Distributed Applications}
 				\item could store all messages and use them as proof of the exchange: \alert{no deniability}
 			\end{itemize}
 		}
-		\only<2>{
-			Other people with access to the network		
-			\begin{itemize}
-				\item alsdfkj
-			\end{itemize}
-		}
 	\end{minipage}
 	\only<1->{$\rightarrow$ Messaging translates badly to our offline communication expectation}
+\end{frame}
+
+\begin{frame}
+	\frametitle{A Better Analogy}
+	We started with a conversation analogy to identify our expectations of messaging\\[12pt]
+	$\rightarrow$ Actually \alert{postal services} are better to look at messaging from a technical point of view.\\[24pt]
+	\begin{center}
+		\begin{tikzpicture}
+			\node at (0,0) [anchor=east]   {\includegraphics[width=2cm]{img/phone-chat.pdf}};
+			\node at (2,0) [text height=2cm] {\fontsize{3cm}{3cm}\selectfont =\kern-.3ex>};
+			\node at (4,0) [anchor=west]   {\includegraphics[width=5cm]{img/letter-example.pdf}};
+		\end{tikzpicture}
+	\end{center}
 \end{frame}
 
 \begin{frame}
@@ -392,7 +399,7 @@ Security in Distributed Applications}
 	\end{overlayarea}
 \end{frame}
 
-\section{Case Study - Signal}
+%\section{Case Study - Signal}
 
 \begin{frame}
 	\frametitle{Signal - Notes}
@@ -409,7 +416,7 @@ Security in Distributed Applications}
 	\end{itemize}
 \end{frame}
 
-\section{Reverse-Engineering Threema}
+%\section{Reverse-Engineering Threema}
 
 \begin{frame}
 	\frametitle{Enter Threema}
@@ -467,49 +474,52 @@ Security in Distributed Applications}
 	\begin{overlayarea}{\textwidth}{\textheight}
 		\begin{columns}
 			\begin{column}[t]{.3\textwidth}
-				\only<1>{\includegraphics[width=\textwidth]{img/handshake.pdf}}	
-				\only<2>{\includegraphics[width=\textwidth]{img/handshake-1.pdf}}	
-				\only<3>{\includegraphics[width=\textwidth]{img/handshake-2.pdf}}	
-				\only<4>{\includegraphics[width=\textwidth]{img/handshake-3.pdf}}	
-				\only<5>{\includegraphics[width=\textwidth]{img/handshake-4.pdf}}	
+				\begin{overlayarea}{\textwidth}{\textheight}
+					\only<1>{\includegraphics[width=\textwidth]{img/handshake.pdf}}	
+					\only<2>{\includegraphics[width=\textwidth]{img/handshake-1.pdf}}	
+					\only<3>{\includegraphics[width=\textwidth]{img/handshake-2.pdf}}	
+					\only<4>{\includegraphics[width=\textwidth]{img/handshake-3.pdf}}	
+					\only<5>{\includegraphics[width=\textwidth]{img/handshake-4.pdf}}	
+				\end{overlayarea}
 			\end{column}
 			\begin{column}[t]{.01\textwidth}
 			%padding
 			\end{column}
 			\begin{column}[t]{.69\textwidth}
-				\-\\%invisible line break
-				\only<1>{%
-					Initial Text goes here
-				}
-				\only<2>{%
-					{\large Client Hello Packet}\\[1ex]
-					\includegraphics[page=11,clip,trim={.99cm 9cm 3.2cm 2.55cm},width=\textwidth]{out/messages.pdf}
-					\begin{itemize}
-						\item Text goes here
-					\end{itemize}
-				}	
-				\only<3>{%
-					{\large Server Hello Packet}\\[1ex]
-					\includegraphics[page=11,clip,trim={.99cm 3.5cm 3.2cm 6.9cm},width=\textwidth]{out/messages.pdf}
-					\begin{itemize}
-						\item Text goes here
-					\end{itemize}
-				}	
-				\only<4>{%
-					{\large Client Authentication Packet}\\[1ex]
-					\includegraphics[page=12,clip,trim={.99cm 10cm 3.2cm 1.5cm},width=\textwidth]{out/messages.pdf}
-					\begin{itemize}
-						\item Text goes here
-					\end{itemize}
-				}	
-				\only<5>{%
-					{\large Client Authentication Packet}\\[1ex]
-					\includegraphics[page=12,clip,trim={.99cm 7cm 3.2cm 6.2cm},width=\textwidth]{out/messages.pdf}
-					\begin{itemize}
-						\item Text goes here
-					\end{itemize}
-				}	
-			\end{column}
+				\begin{overlayarea}{\textwidth}{\textheight}
+					\-\\%invisible line break
+					\only<1>{%
+						Initial Text goes here
+					}
+					\only<2>{%
+						{\large Client Hello Packet}\\[1ex]
+						\includegraphics[page=11,clip,trim={.99cm 9cm 3.2cm 2.55cm},width=\textwidth]{out/messages.pdf}
+						\begin{itemize}
+							\item Text goes here
+						\end{itemize}
+					}	
+					\only<3>{%
+						{\large Server Hello Packet}\\[1ex]
+						\includegraphics[page=11,clip,trim={.99cm 3.5cm 3.2cm 6.9cm},width=\textwidth]{out/messages.pdf}
+						\begin{itemize}
+							\item Text goes here
+						\end{itemize}
+					}	
+					\only<4>{%
+						{\large Client Authentication Packet}\\[1ex]
+						\includegraphics[page=12,clip,trim={.99cm 10cm 3.2cm 1.5cm},width=\textwidth]{out/messages.pdf}
+						\begin{itemize}
+							\item Text goes here
+						\end{itemize}
+					}	
+					\only<5>{%
+						{\large Client Authentication Packet}\\[1ex]
+						\includegraphics[page=12,clip,trim={.99cm 7cm 3.2cm 6.2cm},width=\textwidth]{out/messages.pdf}
+						\begin{itemize}
+							\item Text goes here
+						\end{itemize}
+					}	
+				\end{overlayarea} \end{column}
 		\end{columns}
 	\end{overlayarea}
 \end{frame}
