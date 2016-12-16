@@ -169,7 +169,7 @@ Security in Distributed Applications}
 	\only<2>{%
 		Perfect Forward- and Future Secrecy\\\pdfcomment{Diese Folie muss an eine andere Stelle wandern}
 		\begin{center}
-			\includegraphics[width=\textwidth]{img/pfs.pdf}
+			\includegraphics[width=\textwidth]{img/pfs-simple.pdf}
 		\end{center}
 	}
 \end{frame}
@@ -297,9 +297,44 @@ Security in Distributed Applications}
 
 \begin{frame}
 	\frametitle{Deniability}
-	\centering
-	\includegraphics[width=.8\textwidth]{img/deniability-letter.pdf}
-	\pdfcomment{Public-Key Authenticators einfach erklären für Deniability}
+	\only<1>{
+		\centering
+		\includegraphics[width=.8\textwidth]{img/deniability-letter.pdf}
+		\pdfcomment{Public-Key Authenticators einfach erklären für Deniability}
+	}
+	\begin{overlayarea}{\textwidth}{\textheight}
+		\begin{itemize}
+			\item<2-> In asymmetric cryptography, it is always clear who sent a message, once the protocol is broken on either side\pdfcomment{now our hacker has managed to break into Bob's phone and can look at the messages}
+			\item<3-> It can, however, be used to exchange a symmetric key that either parties share
+			\item<4-> Now either Party can deny authoring any message
+		\end{itemize}
+		\-\\
+		\begin{center}
+			\only<2>{\includegraphics[width=.8\textwidth]{img/no-deniability.pdf}}
+			\only<3->{\includegraphics[width=.8\textwidth]{img/key-agreement.pdf}}
+		\end{center} 
+	\end{overlayarea} 
+\end{frame} 
+
+\begin{frame}
+	\frametitle{Forward- and Future Secrecy}
+	\begin{center}
+		\only<1>{\pdfcomment{We remember our simple explanation of PFS}
+			\includegraphics[width=\textwidth]{img/pfs-simple.pdf}
+		}
+		\only<2>{\pdfcomment{now we transfer this image to messaging}
+			\includegraphics[width=\textwidth]{img/pfs.pdf}
+		}
+		\pdfcomment{The easiest way to do this is to discard each key after one use and exchange a new one}
+		\pdfcomment{Of course this has to happen in a way that no attacker with a stolen key learns anything about the next one}
+		\onslide<3->{
+			\includegraphics[width=.9\textwidth]{img/e2e-symmetric.pdf}
+			\-\\[1em]\pause
+		}
+		\onslide<4->{
+			\includegraphics[width=.4\textwidth]{img/discard-key.pdf}
+		}
+	\end{center}
 \end{frame}
 
 \begin{frame}
@@ -334,11 +369,12 @@ Security in Distributed Applications}
 				\item[$\rightarrow$] Key signing (PGP)
 				\item[$\rightarrow$] Certificates (trusted third party)
 				\item[$\rightarrow$] (Messenger-)service-based directory (based on phone numbers or email addresses)
+					\pdfcomment{It is not a good idea to use phone numbers for identities, we rather want a separate ID. That's where Threema's approach is interesting}
 			\end{itemize}
 		\item How to deal with changing keys?
 			\begin{itemize}
 				\item warnings are annoying
-				\item Threema's traffic light system encourages authentication but doesn't 
+				\item Threema's traffic light system encourages authentication but doesn't deal with changing keys (other than new identities for known phone numbers with yellow dots)
 			\end{itemize}
 
 	\end{itemize}
@@ -386,6 +422,23 @@ Security in Distributed Applications}
 		\vspace{1cm}
 		\alert{The message server still knows both communication partners!}
 	}
+		\only<7->{
+			We can obfuscate the size of a message with \alert{padding}\\
+			\-\\[2em]
+		}
+	\begin{overlayarea}{\textwidth}{\textheight}
+		\only<8>{
+			\begin{center}
+				\includegraphics[width=.7\textwidth]{img/padding.pdf}
+			\end{center}
+		}
+		\pdfcomment{Of course padding should be randomly different every time}
+		\onslide<9>{
+			\begin{center}
+				\includegraphics[page=13,clip,trim={.99cm 7.5cm 5cm 1cm},width=.9\textwidth]{out/messages.pdf}
+			\end{center}
+		}
+	\end{overlayarea}
 \end{frame}
 
 \begin{frame}
