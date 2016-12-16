@@ -312,10 +312,12 @@ Security in Distributed Applications}
 		\end{block}
 	}
 	\only<2>{
+		\pdfcomment{Put better content here}
 		\begin{itemize}
-			\item identity keys stored on devices, what if stolen
-			\item keys for back-end communication layer hard-coded, almost impossible to replace
-			\item how to deal with key compromise? (answer: key rotation)
+			\item How does Alice know which is Bob's public key?
+			\item Identity keys stored on devices, what if stolen
+			\item Keys for back-end communication layer hard-coded, almost impossible to replace
+			\item How to deal with key compromise? (answer: key rotation)
 		\end{itemize}
 	}
 	\only<3>{
@@ -400,6 +402,20 @@ Security in Distributed Applications}
 \end{frame}
 
 %\section{Case Study - Signal}
+
+\begin{frame}
+	\frametitle{Signal Forward and Future Secrecy}
+	\begin{itemize}
+		\item If you want forward secrecy, you need to use asymmetric crypto and dispose of your keys as often as possible
+		\item To do that you need to perform a new handshake frequently
+		\item Since it is not always given that both parties are online for that handshake, the good people of Whispersystems have come up with this:
+			\begin{enumerate}
+				\item Both parties upload a bunch of keys to the server. Those are signed identity keys as we've seen previously and a large number of \alert{prekeys}
+				\item Using a prekey, any party can perform their part of the handshake offline and end up with a new session key to use 
+				\item These session keys are renewed by \alert{ratcheting} with each message transfer
+			\end{enumerate}
+	\end{itemize}
+\end{frame}
 
 \begin{frame}
 	\frametitle{Signal - Notes}
@@ -575,6 +591,16 @@ Security in Distributed Applications}
 	\begin{itemize}
 		\item Group IDs aren't unique. They are created locally and only work together with the group creator's ID
 		\item The structure of group messages makes it impossible for Threema to introduce multiple group administrators on a protocol level without breaking compatibility to older clients.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The Devil's in the Detail}
+	Sammlung kleinerer Dinge, die uns aufgefallen sind
+	\begin{itemize}
+		\item Media messages could be StageFright attach vectors
+		\item The protocol implementation looks sound to us but the message design prevents feature upgrades on the protocol (not text-protocol) level
+
 	\end{itemize}
 \end{frame}
 
