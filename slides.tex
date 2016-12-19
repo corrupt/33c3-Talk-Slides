@@ -299,18 +299,19 @@ Security in Distributed Applications}
 	\frametitle{Deniability}
 	\only<1>{
 		\centering
+		\-\\
 		\includegraphics[width=.8\textwidth]{img/deniability-letter.pdf}
 		\pdfcomment{Public-Key Authenticators einfach erklären für Deniability}
 	}
 	\begin{overlayarea}{\textwidth}{\textheight}
 		\begin{itemize}
-			\item<2-> In asymmetric cryptography, it is always clear who sent a message, once the protocol is broken on either side\pdfcomment{now our hacker has managed to break into Bob's phone and can look at the messages}
+			\item<2-> In asymmetric cryptography, it is always clear who sent a message, once the protocol is broken on either side
 			\item<3-> It can, however, be used to exchange a symmetric key that either parties share
 			\item<4-> Now either Party can deny authoring any message
 		\end{itemize}
 		\-\\
 		\begin{center}
-			\only<2>{\includegraphics[width=.8\textwidth]{img/no-deniability.pdf}}
+			\only<2>{\includegraphics[width=.8\textwidth]{img/no-deniability.pdf}\pdfcomment{now our hacker has managed to break into Bob's phone and can look at the messages}}
 			\only<3->{\includegraphics[width=.8\textwidth]{img/key-agreement.pdf}}
 		\end{center} 
 	\end{overlayarea} 
@@ -431,8 +432,9 @@ Security in Distributed Applications}
 			\begin{center}
 				\includegraphics[width=.7\textwidth]{img/padding.pdf}
 			\end{center}
+			\pdfcomment{Of course padding should be randomly different every time}
 		}
-		\pdfcomment{Of course padding should be randomly different every time}
+
 		\onslide<9>{
 			\begin{center}
 				\includegraphics[page=13,clip,trim={.99cm 7.5cm 5cm 1cm},width=.9\textwidth]{out/messages.pdf}
