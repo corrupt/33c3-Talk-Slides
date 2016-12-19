@@ -192,29 +192,29 @@ Security in Distributed Applications}
 		\centering
 		\includegraphics[width=.75\textwidth]{img/messaging.pdf}	
 	}
-	\only<2>{%
-		Parties involved
-		\begin{itemize}
-			\item Depending on the scenario, at least one additional party is involved, the messaging provider
-			\item push message provider might also be involved
-			\item In federated scenarios, multiple relaying parties may be involved
-			\item[$\Rightarrow$] Messaging solutions should be designed so as to minimized the data these parties may obtain
-		\end{itemize}
-		Problems:
-		\begin{itemize}
-			\item How to find your peers? (address book leakage)
-			\item How to relay messages to the recipient? (participation leakage)
-			\item Relay always knows the exact time a message was sent
-			\item Relay always knows the size of transmitted messages (padding helps)
-		\end{itemize}
-	}
+	% \only<2>{%
+	% 	Parties involved
+	% 	\begin{itemize}
+	% 		\item Depending on the scenario, at least one additional party is involved, the messaging provider
+	% 		\item push message provider might also be involved
+	% 		\item In federated scenarios, multiple relaying parties may be involved
+	% 		\item[$\Rightarrow$] Messaging solutions should be designed so as to minimized the data these parties may obtain
+	% 	\end{itemize}
+	% 	Problems:
+	% 	\begin{itemize}
+	% 		\item How to find your peers? (address book leakage)
+	% 		\item How to relay messages to the recipient? (participation leakage)
+	% 		\item Relay always knows the exact time a message was sent
+	% 		\item Relay always knows the size of transmitted messages (padding helps)
+	% 	\end{itemize}
+	% }
 \end{frame}
 
 \begin{frame}
 	\frametitle{Traditional Messaging}
 	What if this conversation had taken place via SMS?\\[1em]
 	\begin{minipage}[t][.7\textheight]{\textwidth}
-		\only<1>{
+		\only<1>{\pdfcomment{As can be seen, our conversation analogy (and therefore our expectations) translates badly to the world of messaging. We need a new analogy. #transition to next slide#}
 			Your providers (and other people on the same network)
 			\begin{itemize}
 				\item would know the contents of your exchange: \alert{no confidentiality}
@@ -245,7 +245,11 @@ Security in Distributed Applications}
 \begin{frame}
 	\frametitle{Confidentiality}
 	\centering
-	\includegraphics[width=.8\textwidth]{img/confidentiality.pdf}
+%	\includegraphics[width=.8\textwidth]{img/confidentiality.pdf}
+Hier ist eine Postkarte\\
+Und dann ein Briefumschlag
+\pdfcomment{Now we have established an analogy of our expectations and one a bit closer to the communication relality. Now let's compare and evaluate both.}
+\pdfcomment{We start by looking at the envelope and asking how we can do that. -> Short encryption to cryptography.}
 \end{frame}
 
 \begin{frame}[t]
@@ -296,10 +300,21 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
+	\frametitle{Recap}
+	Hier steht ein Recap und eine geile Ueberleitung. 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Confidentiality}
+	\centering
+	\includegraphics[width=.8\textwidth]{img/confidentiality.pdf}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Deniability}
 	\only<1>{
 		\centering
-		\-\\
+		\-\\[2em]
 		\includegraphics[width=.8\textwidth]{img/deniability-letter.pdf}
 		\pdfcomment{Public-Key Authenticators einfach erklären für Deniability}
 	}

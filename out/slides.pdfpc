@@ -1,0 +1,10 @@
+[file]
+slides.pdf
+[notes]
+### 6
+Diese Folie muss an eine andere Stelle wandern### 14
+now our hacker has managed to break into Bob's phone and can look at the messages### 15
+Of course this has to happen in a way that no attacker with a stolen key learns anything about the next one### 16
+Put better content here### 17
+It is not a good idea to use phone numbers for identities, we rather want a separate ID. That's where Threema's approach is interesting### 18
+Of course padding should be randomly different every time
