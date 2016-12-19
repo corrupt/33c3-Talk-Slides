@@ -361,6 +361,13 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
+	\frametitle{Recap}
+	\begin{itemize}
+		\item Hier steht ein Recap
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Key Management}
 	\only<1>{%
 		\centering
@@ -457,13 +464,104 @@ Security in Distributed Applications}
 			\pdfcomment{Of course padding should be randomly different every time}
 		}
 
-		\onslide<9>{
-			\begin{center}
-				\includegraphics[page=13,clip,trim={.99cm 7.5cm 5cm 1cm},width=.9\textwidth]{out/messages.pdf}
-			\end{center}
-		}
+		% \onslide<9>{
+		% 	\begin{center}
+		% 		\includegraphics[page=13,clip,trim={.99cm 7.5cm 5cm 1cm},width=.9\textwidth]{out/messages.pdf}
+		% 	\end{center}
+		% }
 	\end{overlayarea}
 \end{frame}
+
+\begin{frame}
+	Threema Architecture
+\end{frame}
+
+\begin{frame}
+	Threema Fingerprints
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{Threema's App-to-Server Handshake}
+	\begin{overlayarea}{\textwidth}{\textheight}
+		\begin{columns}
+			\begin{column}[t]{.3\textwidth}
+				\begin{overlayarea}{\textwidth}{\textheight}
+					\only<1>{\includegraphics[width=\textwidth]{img/handshake.pdf}}	
+					\only<2>{\includegraphics[width=\textwidth]{img/handshake-1.pdf}}	
+					\only<3>{\includegraphics[width=\textwidth]{img/handshake-2.pdf}}	
+					\only<4>{\includegraphics[width=\textwidth]{img/handshake-3.pdf}}	
+					\only<5>{\includegraphics[width=\textwidth]{img/handshake-4.pdf}}	
+				\end{overlayarea}
+			\end{column}
+			\begin{column}[t]{.01\textwidth}
+			%padding
+			\end{column}
+			\begin{column}[t]{.69\textwidth}
+				\begin{overlayarea}{\textwidth}{\textheight}
+					\-\\%invisible line break
+					\only<1>{%
+						Initial Text goes here
+					}
+					\only<2>{%
+						{\large Client Hello Packet}\\[1ex]
+						\includegraphics[page=11,clip,trim={.99cm 9cm 3.2cm 2.55cm},width=\textwidth]{out/messages.pdf}
+						\begin{itemize}
+							\item Text goes here
+						\end{itemize}
+					}	
+					\only<3>{%
+						{\large Server Hello Packet}\\[1ex]
+						\includegraphics[page=11,clip,trim={.99cm 3.5cm 3.2cm 6.9cm},width=\textwidth]{out/messages.pdf}
+						\begin{itemize}
+							\item Text goes here
+						\end{itemize}
+					}	
+					\only<4>{%
+						{\large Client Authentication Packet}\\[1ex]
+						\includegraphics[page=12,clip,trim={.99cm 10cm 3.2cm 1.5cm},width=\textwidth]{out/messages.pdf}
+						\begin{itemize}
+							\item Text goes here
+						\end{itemize}
+					}	
+					\only<5>{%
+						{\large Server Acknowledgement Packet}\\[1ex]
+						\includegraphics[page=12,clip,trim={.99cm 7cm 3.2cm 6.2cm},width=\textwidth]{out/messages.pdf}
+						\begin{itemize}
+							\item Text goes here
+						\end{itemize}
+					}	
+				\end{overlayarea} \end{column}
+		\end{columns}
+	\end{overlayarea}
+\end{frame}
+
+\begin{frame}
+		\begin{center}\includegraphics[width=\textwidth]{img/2-layer-tunnel.pdf}\end{center}
+		Lila und Gruen sind klar\\
+		Jetzt noch kurz rot
+\end{frame}
+
+\begin{frame}
+	NaCl
+\end{frame}
+
+\begin{frame}
+	\frametitle{Threema Packet Format}
+
+	\includegraphics[page=1,clip,trim={.99cm 8cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Threema Text Messages}
+	\includegraphics[page=3,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Threema Image Messages}
+	\includegraphics[page=4,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
+\end{frame}
+
 
 \begin{frame}
 	\frametitle{Sending an Image Message}
@@ -476,6 +574,71 @@ Security in Distributed Applications}
 		\only<5>{\includegraphics[width=\textwidth]{img/threema-architecture-5.pdf}}
 		\only<6>{\includegraphics[width=\textwidth]{img/threema-architecture.pdf}}
 	\end{overlayarea}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Threema: Special Messages}
+	\begin{itemize}
+		\item Polls
+		\item Images with Caption
+			\begin{itemize}
+				\item Case of caption leak found
+			\end{itemize}
+		\item Audio Messages
+			\begin{itemize}
+				\item Leak Android version
+				\item Possible StageFright vector
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Threema Audio Messages}
+	\includegraphics[page=5,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Threema Audio Messages -- Notes}
+	\begin{itemize}
+		\item Audio length is lost on forwarding
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Group Messages}
+	\includegraphics[page=6,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Group Messages}
+	\begin{itemize}
+		\item Group IDs aren't unique. They are created locally and only work together with the group creator's ID
+		\item The structure of group messages makes it impossible for Threema to introduce multiple group administrators on a protocol level without breaking compatibility to older clients.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The Devil's in the Detail}
+	Sammlung kleinerer Dinge, die uns aufgefallen sind
+	\begin{itemize}
+		\item Media messages could be StageFright attach vectors
+		\item The protocol implementation looks sound to us but the message design prevents feature upgrades on the protocol (not text-protocol) level
+
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Threema - Notes and Open Questions}
+	Notes:
+	\begin{itemize}
+		\item PFS only on transport layer (attacker sniffing packets from the outside will not learn contents after private key acquisition)
+	\end{itemize}
+	Q:
+	\begin{itemize}
+		\item How often is the handshake performed?
+	\end{itemize}
 \end{frame}
 
 %\section{Case Study - Signal}
@@ -548,137 +711,6 @@ Security in Distributed Applications}
 		\end{enumerate}
 \end{itemize}
 \alert{Positive side-note}: Threema had released a security white paper early on
-\end{frame}
-
-\begin{frame}
-	\frametitle{Threema - Notes and Open Questions}
-	Notes:
-	\begin{itemize}
-		\item PFS only on transport layer (attacker sniffing packets from the outside will not learn contents after private key acquisition)
-	\end{itemize}
-	Q:
-	\begin{itemize}
-		\item How often is the handshake performed?
-	\end{itemize}
-\end{frame}
-
-\begin{frame}[t]
-	\frametitle{Threema's App-to-Server Handshake}
-	\begin{overlayarea}{\textwidth}{\textheight}
-		\begin{columns}
-			\begin{column}[t]{.3\textwidth}
-				\begin{overlayarea}{\textwidth}{\textheight}
-					\only<1>{\includegraphics[width=\textwidth]{img/handshake.pdf}}	
-					\only<2>{\includegraphics[width=\textwidth]{img/handshake-1.pdf}}	
-					\only<3>{\includegraphics[width=\textwidth]{img/handshake-2.pdf}}	
-					\only<4>{\includegraphics[width=\textwidth]{img/handshake-3.pdf}}	
-					\only<5>{\includegraphics[width=\textwidth]{img/handshake-4.pdf}}	
-				\end{overlayarea}
-			\end{column}
-			\begin{column}[t]{.01\textwidth}
-			%padding
-			\end{column}
-			\begin{column}[t]{.69\textwidth}
-				\begin{overlayarea}{\textwidth}{\textheight}
-					\-\\%invisible line break
-					\only<1>{%
-						Initial Text goes here
-					}
-					\only<2>{%
-						{\large Client Hello Packet}\\[1ex]
-						\includegraphics[page=11,clip,trim={.99cm 9cm 3.2cm 2.55cm},width=\textwidth]{out/messages.pdf}
-						\begin{itemize}
-							\item Text goes here
-						\end{itemize}
-					}	
-					\only<3>{%
-						{\large Server Hello Packet}\\[1ex]
-						\includegraphics[page=11,clip,trim={.99cm 3.5cm 3.2cm 6.9cm},width=\textwidth]{out/messages.pdf}
-						\begin{itemize}
-							\item Text goes here
-						\end{itemize}
-					}	
-					\only<4>{%
-						{\large Client Authentication Packet}\\[1ex]
-						\includegraphics[page=12,clip,trim={.99cm 10cm 3.2cm 1.5cm},width=\textwidth]{out/messages.pdf}
-						\begin{itemize}
-							\item Text goes here
-						\end{itemize}
-					}	
-					\only<5>{%
-						{\large Client Authentication Packet}\\[1ex]
-						\includegraphics[page=12,clip,trim={.99cm 7cm 3.2cm 6.2cm},width=\textwidth]{out/messages.pdf}
-						\begin{itemize}
-							\item Text goes here
-						\end{itemize}
-					}	
-				\end{overlayarea} \end{column}
-		\end{columns}
-	\end{overlayarea}
-\end{frame}
-
-
-\begin{frame}
-	\frametitle{Threema Packet Format}
-
-	\includegraphics[page=1,clip,trim={.99cm 8cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{Threema: Special Messages}
-	\begin{itemize}
-		\item Polls
-		\item Images with Caption
-			\begin{itemize}
-				\item Case of caption leak found
-			\end{itemize}
-		\item Audio Messages
-			\begin{itemize}
-				\item Leak Android version
-				\item Possible StageFright vector
-			\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Threema Image Messages}
-	\includegraphics[page=4,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Threema Audio Messages}
-	\includegraphics[page=5,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Threema Audio Messages -- Notes}
-	\begin{itemize}
-		\item Audio length is lost on forwarding
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Group Messages}
-	\includegraphics[page=6,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Group Messages}
-	\begin{itemize}
-		\item Group IDs aren't unique. They are created locally and only work together with the group creator's ID
-		\item The structure of group messages makes it impossible for Threema to introduce multiple group administrators on a protocol level without breaking compatibility to older clients.
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{The Devil's in the Detail}
-	Sammlung kleinerer Dinge, die uns aufgefallen sind
-	\begin{itemize}
-		\item Media messages could be StageFright attach vectors
-		\item The protocol implementation looks sound to us but the message design prevents feature upgrades on the protocol (not text-protocol) level
-
-	\end{itemize}
 \end{frame}
 
 \begin{frame}[plain]
