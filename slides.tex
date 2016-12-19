@@ -95,7 +95,7 @@ Security in Distributed Applications}
 
 %\section{Introduction}
 
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Messaging - An Analogy}
 	\begin{itemize}
 		\item You're at a party
@@ -103,15 +103,17 @@ Security in Distributed Applications}
 		\item What do you expect when you say \alert{private}?
 		\item You enter a separate room, you trust the location
 		\item What does a separate room offer you?
-			\begin{itemize}
-				\item Confidentiality
-				\item Authenticity
-				\item Integrity
-				\item Forward Secrecy
-				\item Future Secrecy
-				\item Plausible Deniability
-			\end{itemize}
 	\end{itemize}
+	\pdfcomment{Confidentiality}
+	\pdfcomment{Authenticity}
+	\pdfcomment{Integrity}
+	\pdfcomment{Forward Secrecy}
+	\pdfcomment{Future Secrecy}
+	\pdfcomment{Deniability}
+	\vfill
+	\tikzoverlay at (current page.south east){
+		\includegraphics[width=5cm]{img/party.pdf}
+	};
 \end{frame}
 
 \begin{frame}
@@ -214,7 +216,7 @@ Security in Distributed Applications}
 	\frametitle{Traditional Messaging}
 	What if this conversation had taken place via SMS?\\[1em]
 	\begin{minipage}[t][.7\textheight]{\textwidth}
-		\only<1>{\pdfcomment{As can be seen, our conversation analogy (and therefore our expectations) translates badly to the world of messaging. We need a new analogy. #transition to next slide#}
+		\only<1>{\pdfcomment{As can be seen, our conversation analogy (and therefore our expectations) translates badly to the world of messaging. We need a new analogy. -- transition to next slide}
 			Your providers (and other people on the same network)
 			\begin{itemize}
 				\item would know the contents of your exchange: \alert{no confidentiality}
@@ -231,25 +233,28 @@ Security in Distributed Applications}
 
 \begin{frame}
 	\frametitle{A Better Analogy}
-	We started with a conversation analogy to identify our expectations of messaging\\[12pt]
-	$\rightarrow$ Actually \alert{postal services} are better to look at messaging from a technical point of view.\\[24pt]
-	\begin{center}
-		\begin{tikzpicture}
-			\node at (0,0) [anchor=east]   {\includegraphics[width=2cm]{img/phone-chat.pdf}};
-			\node at (2,0) [text height=2cm] {\fontsize{3cm}{3cm}\selectfont =\kern-.3ex>};
-			\node at (4,0) [anchor=west]   {\includegraphics[width=5cm]{img/letter-example.pdf}};
-		\end{tikzpicture}
-	\end{center}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Confidentiality}
-	\centering
-%	\includegraphics[width=.8\textwidth]{img/confidentiality.pdf}
-Hier ist eine Postkarte\\
-Und dann ein Briefumschlag
-\pdfcomment{Now we have established an analogy of our expectations and one a bit closer to the communication relality. Now let's compare and evaluate both.}
-\pdfcomment{We start by looking at the envelope and asking how we can do that. -> Short encryption to cryptography.}
+	\only<1>{
+		We started with a conversation analogy to identify our expectations of messaging\\[12pt]
+		$\rightarrow$ Actually \alert{postal services} are better to look at messaging from a technical point of view.\\[24pt]
+		\begin{center}
+			\begin{tikzpicture}
+				\node at (0,0) [anchor=east]   {\includegraphics[width=2cm]{img/phone-chat.pdf}};
+				\node at (2,0) [text height=2cm] {\fontsize{3cm}{3cm}\selectfont =\kern-.3ex>};
+				\node at (4,0) [anchor=west]   {\includegraphics[width=5cm]{img/letter-example.pdf}};
+			\end{tikzpicture}
+		\end{center}
+	}
+	\onslide<2->{
+		\centering
+		\includegraphics[width=.2\textwidth]{img/postcard.pdf}
+		\-\\[2em]
+	}
+	\onslide<3>{
+		\centering
+		\includegraphics[width=.3\textwidth]{img/letter-to-envelope.pdf}
+		\pdfcomment{Now we have established an analogy of our expectations and one a bit closer to the communication relality. Now let's compare and evaluate both.}
+		\pdfcomment{We start by looking at the envelope and asking how we can do that. -> Short encryption to cryptography.}
+	}
 \end{frame}
 
 \begin{frame}[t]
@@ -301,7 +306,9 @@ Und dann ein Briefumschlag
 
 \begin{frame}
 	\frametitle{Recap}
-	Hier steht ein Recap und eine geile Ueberleitung. 
+	\begin{itemize}
+		\item Hier steht ein Recap
+	\end{itemize}
 \end{frame}
 
 \begin{frame}

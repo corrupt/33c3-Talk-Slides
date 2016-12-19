@@ -45,7 +45,8 @@
     </linearGradient>
     <linearGradient
        id="linearGradient5633"
-       osb:paint="solid">
+       osb:paint="solid"
+       gradientTransform="translate(303.46316,107.71934)">
       <stop
          style="stop-color:#ff5ca8;stop-opacity:1;"
          offset="0"
@@ -122,7 +123,7 @@
     <linearGradient
        id="linearGradient4872"
        osb:paint="solid"
-       gradientTransform="translate(-86.260212,-144.17604)">
+       gradientTransform="matrix(0.53154459,0,0,0.53154459,138.08277,11.302153)">
       <stop
          style="stop-color:#ffffff;stop-opacity:1;"
          offset="0"
@@ -190,7 +191,7 @@
     <linearGradient
        id="Owl_red-3"
        osb:paint="solid"
-       gradientTransform="translate(477.57126,75.852079)">
+       gradientTransform="translate(781.03442,183.57142)">
       <stop
          style="stop-color:#807ac9;stop-opacity:1;"
          offset="0"
@@ -220,12 +221,42 @@
        inkscape:collect="always"
        xlink:href="#linearGradient4376"
        id="linearGradient27479"
-       gradientTransform="matrix(2.6513612,0,0,0.37716476,2.8785974,0)"
+       gradientTransform="matrix(2.6513612,0,0,0.37716476,-32.200494,0)"
        x1="80.310264"
        y1="596.93333"
        x2="104.88838"
        y2="596.93333"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4376"
+       id="linearGradient41801"
+       gradientTransform="matrix(1.4823731,0,0,0.19059955,183.93392,87.938146)"
+       x1="97.68448"
+       y1="501.82207"
+       x2="141.06491"
+       y2="501.82207"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4376"
+       id="linearGradient42271"
+       gradientTransform="matrix(2.5690386,0,0,0.38925067,56.316027,0)"
+       x1="106.04074"
+       y1="428.95611"
+       x2="129.70159"
+       y2="428.95611"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4376"
+       id="linearGradient42349"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(2.6513612,0,0,0.37716476,97.465712,0)"
+       x1="80.310264"
+       y1="596.93333"
+       x2="104.88838"
+       y2="596.93333" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -234,9 +265,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="150.74765"
-     inkscape:cy="103.7429"
+     inkscape:zoom="3.959798"
+     inkscape:cx="160.68121"
+     inkscape:cy="81.666214"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -244,9 +275,9 @@
      fit-margin-left="1"
      fit-margin-right="1"
      fit-margin-bottom="1"
-     inkscape:window-width="1920"
-     inkscape:window-height="1200"
-     inkscape:window-x="3120"
+     inkscape:window-width="1916"
+     inkscape:window-height="1196"
+     inkscape:window-x="1200"
      inkscape:window-y="0"
      inkscape:window-maximized="0" />
   <metadata
@@ -257,7 +288,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -280,27 +311,15 @@
          id="flowPara4182">Key</flowPara></flowRoot>    <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient27479);fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="248.12465"
+       x="213.04555"
        y="232.36221"
        id="text4184"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="248.12465"
+         x="213.04555"
          y="232.36221"
          id="tspan4192"
          style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';text-align:center;text-anchor:middle;fill:url(#linearGradient27479);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none">key compromise</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4376);fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="271.48276"
-       y="174.13145"
-       id="text4204"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4206"
-         x="271.48276"
-         y="174.13145"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none">Future Secrecy</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4376);fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -313,13 +332,6 @@
          x="125.29513"
          y="174.21935"
          style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none">Perfect Forward Secrecy</tspan></text>
-    <path
-       style="fill:url(#linearGradient4376);fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient4872);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m 272.42277,187.71935 118.15452,0"
-       id="path4398"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
     <path
        style="fill:url(#linearGradient4376);fill-rule:evenodd;stroke:url(#linearGradient4872);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker5462)"
        d="m 225.86841,187.71935 -119.66001,0"
@@ -357,6 +369,18 @@
          d="m 127.14277,140.07869 37.14285,0"
          style="fill:url(#linearGradient27312);fill-rule:evenodd;stroke:url(#linearGradient27314);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
     </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text42345"
+       y="232.36221"
+       x="342.71176"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient42349);fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';text-align:center;text-anchor:middle;fill:url(#linearGradient42349);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan42347"
+         y="232.36221"
+         x="342.71176"
+         sodipodi:role="line">key renogotiation</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -382,7 +406,7 @@
          id="tspan4329"
          x="94.219208"
          y="127.4743"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)">secure messages</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)">secret messages</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -404,15 +428,15 @@
        id="text5711"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan5713"
          x="257.79062"
          y="127.33698"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)">compromised</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)"
+         id="tspan40687">compromised</tspan><tspan
          sodipodi:role="line"
          x="257.79062"
          y="136.71198"
-         id="tspan5715"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)">messages</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.5px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient4376)"
+         id="tspan4328">messages</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -426,5 +450,31 @@
        height="113.57143"
        x="244.28571"
        y="107.71935" />
+    <rect
+       style="display:inline;opacity:1;fill:url(#linearGradient5633);fill-opacity:1;stroke:url(#Owl_red-3);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4140-0"
+       width="8.2142859"
+       height="113.57143"
+       x="303.46317"
+       y="107.71935" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;display:inline;fill:url(#linearGradient42271);fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="327.79877"
+       y="174.13145"
+       id="text4204"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4206"
+         x="327.79877"
+         y="174.13145"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:url(#linearGradient42271);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none">Future Secrecy</tspan></text>
+    <path
+       style="display:inline;fill:url(#linearGradient41801);fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient4872);stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 328.73877,187.71935 62.8044,0"
+       id="path4398"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>
