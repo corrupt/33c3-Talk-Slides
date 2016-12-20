@@ -91,8 +91,9 @@ Security in Distributed Applications}
 
 \begin{document}
 
-\maketitle
+\pdfcomment{test}
 
+\maketitle
 %\section{Introduction}
 
 \begin{frame}[t]
@@ -129,6 +130,15 @@ Security in Distributed Applications}
 
 \end{frame}
 
+\begin{frame}
+	\frametitle{You Know Each Other}
+	Since you're long-time friends, you're absolutely sure, whom you're talking to
+	\begin{itemize}
+		\item Nobody can impersonate your friend or you, without the other noticing
+		\item You're talking directly, without a phone or webcam in between
+	\end{itemize}
+	We call this \alert{authenticity}
+\end{frame}
 
 \begin{frame}
 	\frametitle{In Sight of Each Other}
@@ -138,16 +148,6 @@ Security in Distributed Applications}
 		\item There is no way either of you hears something other than the other says
 	\end{itemize}
 	We call this \alert{integrity}
-\end{frame}
-
-\begin{frame}
-	\frametitle{You Know Each Other}
-	Since you're long-time friends, you're absolutely sure, whom you're talking to
-	\begin{itemize}
-		\item Nobody can impersonate your friend or you, without the other noticing
-		\item You're talking directly, without a phone or webcam in between
-	\end{itemize}
-	We call this \alert{authenticity}
 \end{frame}
 
 \begin{frame}
@@ -423,10 +423,16 @@ Security in Distributed Applications}
 			\item How to deal with key compromise? (answer: key rotation)
 		\end{itemize}
 	}
-	\only<3>{
-		\centering
-		\includegraphics[width=.9\textwidth]{img/identity-query.pdf}
-	}
+	\begin{overlayarea}{\textwidth}{\textheight}
+		\only<3>{
+			\centering
+			\includegraphics[width=.9\textwidth]{img/identity-query.pdf}
+		}
+		\only<4>{
+			\centering
+			\includegraphics[width=.9\textwidth]{img/identity-query2.pdf}
+		}
+	\end{overlayarea}
 \end{frame}
 
 \begin{frame}
@@ -596,7 +602,7 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
-		\begin{center}\includegraphics[width=\textwidth]{img/2-layer-tunnel.pdf}\end{center}
+		\begin{center}\includegraphics[width=\textwidth]{img/2-layer-tunnel2.pdf}\end{center}
 		Lila und Gruen sind klar\\
 		Jetzt noch kurz rot
 \end{frame}
