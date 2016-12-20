@@ -96,24 +96,21 @@ Security in Distributed Applications}
 %\section{Introduction}
 
 \begin{frame}[t]
-	\frametitle{Messaging - An Analogy}
+	\frametitle{Messaging -- Identifying Our Expectations}
+	You're at a party
 	\begin{itemize}
-		\item You're at a party
 		\item Friend approaches you and needs to tell you something \alert{in private}
 		\item What do you expect when you say \alert{private}?
 		\item You enter a separate room, you trust the location
 		\item What does a separate room offer you?
 	\end{itemize}
-	\pdfcomment{Confidentiality}
-	\pdfcomment{Authenticity}
-	\pdfcomment{Integrity}
-	\pdfcomment{Forward Secrecy}
-	\pdfcomment{Future Secrecy}
-	\pdfcomment{Deniability}
 	\vfill
 	\tikzoverlay at (current page.south east){
 		\includegraphics[width=5cm]{img/party.pdf}
 	};
+	\pdfcomment{Two analogies: One describing our expectations and one closer to the technical reality}
+	\pdfcomment{We start by describing our expectations regarding conversation}
+	\pdfcomment{Not everybody would automatically think of all points, but we want to establish them as a common ground}
 \end{frame}
 
 \begin{frame}
@@ -169,7 +166,7 @@ Security in Distributed Applications}
 	We call this \alert{future secrecy}}
 	\pdfcomment{Future Secrecy is also called post-compromise security}
 	\only<2>{%
-		Perfect Forward- and Future Secrecy\\\pdfcomment{Diese Folie muss an eine andere Stelle wandern}
+		Perfect Forward- and Future Secrecy\\
 		\begin{center}
 			\includegraphics[width=\textwidth]{img/pfs-simple.pdf}
 		\end{center}
@@ -189,11 +186,14 @@ Security in Distributed Applications}
 %\section{Enter Messaging Services}
 
 \begin{frame}
-	\frametitle{Messaging}
+	\frametitle{Messaging -- Reality Check}
 	\only<1>{%
 		\centering
 		\includegraphics[width=.75\textwidth]{img/messaging.pdf}	
 	}
+	\pdfcomment{Now we have established our ideal scenario and want to check if this still applies to messaging.}
+	\pdfcomment{This begins with the entry of a new player, the messaging service}
+	\pdfcomment{This brings us to our second analogy, the one that describes messaging from a technical perspective}
 	% \only<2>{%
 	% 	Parties involved
 	% 	\begin{itemize}
@@ -213,8 +213,21 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Traditional Messaging}
-	What if this conversation had taken place via SMS?\\[1em]
+	\frametitle{Messaging -- A More Technical Analogy}
+		We started with a conversation analogy to identify our expectations of messaging\\[12pt]
+		$\rightarrow$ Actually \alert{postal services} are better to look at messaging from a technical point of view.\\[24pt]
+		\begin{center}
+			\begin{tikzpicture}
+				\node at (0,0) [anchor=east]   {\includegraphics[width=2cm]{img/phone-chat.pdf}};
+				\node at (2,0) [text height=2cm] {\fontsize{3cm}{3cm}\selectfont =\kern-.3ex>};
+				\node at (4,0) [anchor=west]   {\includegraphics[width=5cm]{img/letter-example.pdf}};
+			\end{tikzpicture}
+		\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Example: Traditional Messaging}
+	What if our party conversation had taken place via SMS?\\[1em]
 	\begin{minipage}[t][.7\textheight]{\textwidth}
 		\only<1>{\pdfcomment{As can be seen, our conversation analogy (and therefore our expectations) translates badly to the world of messaging. We need a new analogy. -- transition to next slide}
 			Your providers (and other people on the same network)
@@ -229,30 +242,20 @@ Security in Distributed Applications}
 		}
 	\end{minipage}
 	\only<1->{$\rightarrow$ Messaging translates badly to our offline communication expectation}
+	\pdfcomment{mobile messaging is like a postal service but feels like a private conversation}
 \end{frame}
 
 \begin{frame}
-	\frametitle{A Better Analogy}
-	\only<1>{
-		We started with a conversation analogy to identify our expectations of messaging\\[12pt]
-		$\rightarrow$ Actually \alert{postal services} are better to look at messaging from a technical point of view.\\[24pt]
-		\begin{center}
-			\begin{tikzpicture}
-				\node at (0,0) [anchor=east]   {\includegraphics[width=2cm]{img/phone-chat.pdf}};
-				\node at (2,0) [text height=2cm] {\fontsize{3cm}{3cm}\selectfont =\kern-.3ex>};
-				\node at (4,0) [anchor=west]   {\includegraphics[width=5cm]{img/letter-example.pdf}};
-			\end{tikzpicture}
-		\end{center}
-	}
-	\onslide<2->{
+	\frametitle{From Postcards to Letters}
+	\onslide<1->{
 		\centering
 		\includegraphics[width=.2\textwidth]{img/postcard.pdf}
 		\-\\[2em]
 	}
-	\onslide<3>{
+	\onslide<2>{
 		\centering
 		\includegraphics[width=.3\textwidth]{img/letter-to-envelope.pdf}
-		\pdfcomment{Now we have established an analogy of our expectations and one a bit closer to the communication relality. Now let's compare and evaluate both.}
+		\pdfcomment{Now we have established an analogy of our expectations and one a bit closer to the communication reality. Now let's compare and evaluate both.}
 		\pdfcomment{We start by looking at the envelope and asking how we can do that. -> Short encryption to cryptography.}
 	}
 \end{frame}
@@ -301,46 +304,68 @@ Security in Distributed Applications}
 		\item Both parties publish their identities and public keys
 		\item Any message can be encrypted with anyone's public key and only be decrypted with its corresponding secret key
 	\end{itemize}
+	\pdfcomment{This scheme is very expensive and a message can always be sent by anyone}
+\end{frame}
 
+\begin{frame}
+	\frametitle{Authenticated Enryption}
+	\center
+	\pdfcomment{what if we had a scheme, that produced a key specifically from one public and one private key}
+	\pdfcomment{turns out, we have. And it works both ways and produces the same key}
+	\includegraphics[width=.9\textwidth]{img/pka.pdf}	
 \end{frame}
 
 \begin{frame}
 	\frametitle{Recap}
-	\begin{itemize}
-		\item Hier steht ein Recap
-	\end{itemize}
+	%\begin{itemize}
+	%	\item \alert{Asymmetric Encryption} gives us IDs but is very expensive.\\[6pt]
+	%		\begin{center}\includegraphics[width=.4\textwidth]{img/asymmetric_crypto-2.pdf}\end{center}
+
+	%	\item \alert{Symmetric Encryption} is cheap, but a key has to be shared by all participants \alert{before} communication starts.
+	%		\begin{center}\includegraphics[width=.4\textwidth]{img/symmetric_crypto.pdf}\end{center}\\[12pt]
+	%	\item \alert{Authenticated Encryption} allows us to create symmetric keys based on asymmetric key pairs.
+	%\end{itemize}
+	\begin{tabular}{@{}p{.6\textwidth}p{.4\textwidth}}
+		\parbox{.6\textwidth}{\alert{Asymmetric Encryption} gives us IDs but is very expensive.} & \parbox{.4\textwidth}{\includegraphics[width=.4\textwidth]{img/asymmetric_crypto-2.pdf}}  \\[36pt]
+		\parbox{.6\textwidth}{\alert{Symmetric Encryption} is cheap, but a key has to be shared by all participants \alert{before} communication starts.} & \parbox{.4\textwidth}{\includegraphics[width=.4\textwidth]{img/symmetric_crypto.pdf}} \\[36pt]
+		\parbox{.6\textwidth}{\alert{Authenticated Encryption} allows us to create symmetric keys based on asymmetric key pairs.} & \parbox{.4\textwidth}{\includegraphics[width=.4\textwidth]{img/pka.pdf}} \\
+	\end{tabular}
+	\vfill
+	But there's more\ldots
 \end{frame}
 
 \begin{frame}
 	\frametitle{Confidentiality}
 	\centering
+	\includegraphics[width=.8\textwidth]{img/symmetric_crypto.pdf}\\[2em]
 	\includegraphics[width=.8\textwidth]{img/confidentiality.pdf}
+	\pdfcomment{we can take our symmetric key (the one obtained from our authenticated encryption scheme) to obtain confidentiality}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Deniability}
 	\only<1>{
 		\centering
-		\-\\[2em]
+		\-\\[.5em]
 		\includegraphics[width=.8\textwidth]{img/deniability-letter.pdf}
 		\pdfcomment{Public-Key Authenticators einfach erklären für Deniability}
 	}
-	\begin{overlayarea}{\textwidth}{\textheight}
-		\begin{itemize}
-			\item<2-> In asymmetric cryptography, it is always clear who sent a message, once the protocol is broken on either side
-			\item<3-> It can, however, be used to exchange a symmetric key that either parties share
-			\item<4-> Now either Party can deny authoring any message
-		\end{itemize}
-		\-\\
-		\begin{center}
-			\only<2>{\includegraphics[width=.8\textwidth]{img/no-deniability.pdf}\pdfcomment{now our hacker has managed to break into Bob's phone and can look at the messages}}
-			\only<3->{\includegraphics[width=.8\textwidth]{img/key-agreement.pdf}}
-		\end{center} 
-	\end{overlayarea} 
+	%\begin{overlayarea}{\textwidth}{\textheight}
+	%	\begin{itemize}
+	%		\item<2-> In asymmetric cryptography, it is always clear who sent a message, once the protocol is broken on either side
+	%		\item<3-> It can, however, be used to exchange a symmetric key that either parties share
+	%		\item<4-> Now either Party can deny authoring any message
+	%	\end{itemize}
+	%	\-\\
+	%	\begin{center}
+	%		\only<2>{\includegraphics[width=.8\textwidth]{img/no-deniability.pdf}\pdfcomment{now our hacker has managed to break into Bob's phone and can look at the messages}}
+	%		\only<3->{\includegraphics[width=.8\textwidth]{img/key-agreement.pdf}}
+	%	\end{center} 
+	%\end{overlayarea} 
 \end{frame} 
 
 \begin{frame}
-	\frametitle{Forward- and Future Secrecy}
+	\frametitle{But What About Forward- and Future Secrecy?}
 	\begin{center}
 		\only<1>{\pdfcomment{We remember our simple explanation of PFS}
 			\includegraphics[width=\textwidth]{img/pfs-simple.pdf}
@@ -358,13 +383,26 @@ Security in Distributed Applications}
 			\includegraphics[width=.4\textwidth]{img/discard-key.pdf}
 		}
 	\end{center}
+	\pdfcomment{Since we get our key from both secret and public keys, we cannot simply discard it.}
+	\pdfcomment{Therefore we don't have PFS in the scheme we have sketched now.}
+	\pdfcomment{We could get it back, though, if we had a way to renegotiate public- and secret keys.}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Recap}
+	Authenticated Encryption gives us:
 	\begin{itemize}
-		\item Hier steht ein Recap
+		\item Confidentiality
+		\item Deniability
+		\item Authenticity
 	\end{itemize}
+	We don't have:
+	\begin{itemize}
+		\item Perfect Forward Secrecy
+		\item Future Secrecy
+	\end{itemize}
+	\-\\[2em]
+	\alert{$\rightarrow$} We are ignoring Integrity here, but we have that, too.
 \end{frame}
 
 \begin{frame}
