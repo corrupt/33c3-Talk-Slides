@@ -474,11 +474,27 @@ Security in Distributed Applications}
 
 \begin{frame}
 	Threema Architecture
+	\pdfcomment{Coversation starts with Directory Server}
+	\pdfcomment{Messaging server is the most essential}
+	\pdfcomment{MediaServer is for transmission of big files, will e explained later}
 \end{frame}
 
 \begin{frame}
 	Threema Fingerprints
+	\pdfcomment{Tackles the PKI problem explained earlier}
+	\pdfcomment{Solution is pretty good. Reason why we chose 3ma}
+	\pdfcomment{Less trust in Keys from Directory Server based on Threema ID}
+	\pdfcomment{	more if based on phone number and email}
+	\pdfcomment{	most if verified by qr}
 \end{frame}
+
+\begin{frame}
+	NaCl
+	\pdfcomment{NaCl exists and it works as roland explained in "autheticated encryption"}
+	\pdfcomment{3ma uses it}
+	\pdfcomment{c = crypto_box(msg,nonce,pk,sk)}
+\end{frame}
+
 
 \begin{frame}[t]
 	\frametitle{Threema's App-to-Server Handshake}
@@ -506,28 +522,34 @@ Security in Distributed Applications}
 						{\large Client Hello Packet}\\[1ex]
 						\includegraphics[page=11,clip,trim={.99cm 9cm 3.2cm 2.55cm},width=\textwidth]{out/messages.pdf}
 						\begin{itemize}
-							\item Text goes here
+							\item Client generates a \alert{ephemeral} key pair
+							\item Client generates random nonce prefix
 						\end{itemize}
 					}	
 					\only<3>{%
 						{\large Server Hello Packet}\\[1ex]
 						\includegraphics[page=11,clip,trim={.99cm 3.5cm 3.2cm 6.9cm},width=\textwidth]{out/messages.pdf}
 						\begin{itemize}
-							\item Text goes here
+							\item Server generates \alert{ephemeral} key pair
+							\item Server generates random nonce
+							\item Ciphertext encrypted with Server Nonce, Client Ephemeral Key and Server Long-Term Key
 						\end{itemize}
+						\pdfcomment{Ciphertext is is not readable by someone with clients LTK (forward sec).}
+						\pdfcomment{Proves servers possesion of LTK}
 					}	
 					\only<4>{%
 						{\large Client Authentication Packet}\\[1ex]
 						\includegraphics[page=12,clip,trim={.99cm 10cm 3.2cm 1.5cm},width=\textwidth]{out/messages.pdf}
 						\begin{itemize}
-							\item Text goes here
+							\item Outer Encryption with ephemral Keys
+							\item Ciphertext links clients ephemeral key pair to it's long term key pair
 						\end{itemize}
 					}	
 					\only<5>{%
 						{\large Server Acknowledgement Packet}\\[1ex]
 						\includegraphics[page=12,clip,trim={.99cm 7cm 3.2cm 6.2cm},width=\textwidth]{out/messages.pdf}
 						\begin{itemize}
-							\item Text goes here
+							\item Server comfirms everything wokred fine by encrypting something with both ephemeral keys
 						\end{itemize}
 					}	
 				\end{overlayarea} \end{column}
@@ -539,10 +561,6 @@ Security in Distributed Applications}
 		\begin{center}\includegraphics[width=\textwidth]{img/2-layer-tunnel.pdf}\end{center}
 		Lila und Gruen sind klar\\
 		Jetzt noch kurz rot
-\end{frame}
-
-\begin{frame}
-	NaCl
 \end{frame}
 
 \begin{frame}
@@ -577,33 +595,33 @@ Security in Distributed Applications}
 \end{frame}
 
 
-\begin{frame}
-	\frametitle{Threema: Special Messages}
-	\begin{itemize}
-		\item Polls
-		\item Images with Caption
-			\begin{itemize}
-				\item Case of caption leak found
-			\end{itemize}
-		\item Audio Messages
-			\begin{itemize}
-				\item Leak Android version
-				\item Possible StageFright vector
-			\end{itemize}
-	\end{itemize}
-\end{frame}
+% \begin{frame}
+% 	\frametitle{Threema: Special Messages}
+% 	\begin{itemize}
+% 		\item Polls
+% 		\item Images with Caption
+% 			\begin{itemize}
+% 				\item Case of caption leak found
+% 			\end{itemize}
+% 		\item Audio Messages
+% 			\begin{itemize}
+% 				\item Leak Android version
+% 				\item Possible StageFright vector
+% 			\end{itemize}
+% 	\end{itemize}
+% \end{frame}
 
-\begin{frame}
-	\frametitle{Threema Audio Messages}
-	\includegraphics[page=5,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
-\end{frame}
+% \begin{frame}
+% 	\frametitle{Threema Audio Messages}
+% 	\includegraphics[page=5,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
+% \end{frame}
 
-\begin{frame}
-	\frametitle{Threema Audio Messages -- Notes}
-	\begin{itemize}
-		\item Audio length is lost on forwarding
-	\end{itemize}
-\end{frame}
+% \begin{frame}
+% 	\frametitle{Threema Audio Messages -- Notes}
+% 	\begin{itemize}
+% 		\item Audio length is lost on forwarding
+% 	\end{itemize}
+% \end{frame}
 
 \begin{frame}
 	\frametitle{Group Messages}
