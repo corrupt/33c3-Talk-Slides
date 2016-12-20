@@ -23,7 +23,7 @@ $recorder=1;
 $biber='biber --input-directory=bib %O %S';
 
 # Previewer settings
-$pdf_previewer='start /usr/bin/pympress %O %S 2>/dev/null';
+$pdf_previewer='start /usr/bin/evince %O %S 2>/dev/null';
 $preview_continuous_mode=1;
 
 # Misc settings
