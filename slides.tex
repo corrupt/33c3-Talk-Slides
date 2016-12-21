@@ -412,25 +412,32 @@ Security in Distributed Applications}
 			\hfill ---Dieter Gollmann
 		\end{block}
 	}
-	\only<2>{
+	\only<2>{%
+		How does Alice know which is Bob's public key?\\[3em]
+		\begin{center}
+			\includegraphics[width=.5\textwidth]{img/alice-confused-by-bobs-ids.pdf}
+		\end{center}
 		\pdfcomment{Put better content here}
-		\begin{itemize}
-			\item How does Alice know which is Bob's public key?
-			\item Identity keys stored on devices, what if stolen
-			\item Keys for back-end communication layer hard-coded, almost impossible to replace
-			\item How to deal with key compromise? (answer: key rotation)
-		\end{itemize}
+			%\item Identity keys stored on devices, what if stolen
+			%\item Keys for back-end communication layer hard-coded, almost impossible to replace
+			%\item How to deal with key compromise? (answer: key rotation)
 	}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mobile Messaging Key Management}
+	\-\\
 	\begin{overlayarea}{\textwidth}{\textheight}
-		\only<3>{
+		\only<1>{
 			\centering
 			\includegraphics[width=.9\textwidth]{img/identity-query.pdf}
 		}
-		\only<4>{
+		\only<2>{
 			\centering
 			\includegraphics[width=.9\textwidth]{img/identity-query2.pdf}
 		}
 	\end{overlayarea}
+	
 \end{frame}
 
 \begin{frame}
@@ -534,10 +541,18 @@ Security in Distributed Applications}
 
 \begin{frame}
 	\frametitle{NaCl and Threema}
-	\includegraphics[width=\textwidth]{img/NaCl.pdf}
-	\pdfcomment{NaCl exists and it works as roland explained in "autheticated encryption"}
-	\pdfcomment{3ma uses it}
-	\pdfcomment{c = crypto_box(msg,nonce,pk,sk)}
+	\-\\[2em]
+	\begin{overlayarea}{\textwidth}{\textheight}
+		\only<1>{%
+			\includegraphics[width=\textwidth]{img/NaCl.pdf}
+		}
+		\only<2>{%
+			\includegraphics[width=\textwidth]{img/NaCl-highlight.pdf}
+		}
+	%\pdfcomment{NaCl exists and it works as roland explained in "autheticated encryption"}
+	%\pdfcomment{3ma uses it}
+	%\pdfcomment{c = crypto_box(msg,nonce,pk,sk)}
+	\end{overlayarea}
 \end{frame}
 
 
@@ -637,7 +652,6 @@ Security in Distributed Applications}
 		\only<3>{\includegraphics[width=\textwidth]{img/threema-architecture-3.pdf}}
 		\only<4>{\includegraphics[width=\textwidth]{img/threema-architecture-4.pdf}}
 		\only<5>{\includegraphics[width=\textwidth]{img/threema-architecture-5.pdf}}
-		\only<6>{\includegraphics[width=\textwidth]{img/threema-architecture.pdf}}
 	\end{overlayarea}
 \end{frame}
 
@@ -670,22 +684,40 @@ Security in Distributed Applications}
 % 	\end{itemize}
 % \end{frame}
 
-\begin{fraem}
+\begin{frame}
 	\frametitle{Recap}
 	Basic messaging functionality achieved.
-\end{fraem}
+\end{frame}
 
 \begin{frame}
 	\frametitle{Group Messages}
-	\includegraphics[page=6,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
-	\pdfcomment{Group IDs aren't unique. They are created locally and only work together with the group creator's ID}
-	\pdfcomment{The structure of group messages makes it impossible for Threema to introduce multiple group administrators on a protocol level without breaking compatibility to older clients.}
+	\-\\[2em]
+	\begin{overlayarea}{\textwidth}{\textheight}
+		\only<1>{%
+			\includegraphics[page=6,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
+			\pdfcomment{Group IDs aren't unique. They are created locally and only work together with the group creator's ID}
+			\pdfcomment{The structure of group messages makes it impossible for Threema to introduce multiple group administrators on a protocol level without breaking compatibility to older clients.}
+		}
+		\only<2>{%
+
+			\includegraphics[page=14,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
+
+		}
+		\only<3>{%
+
+			\includegraphics[page=15,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
+
+		}
+	\end{overlayarea}
 \end{frame}
+
 
 \begin{frame}
 	\frametitle{Implementation of Addon Features}
 		
 \end{frame}
+
+
 
 \begin{frame}
 	\frametitle{The Devil's in the Detail}
@@ -780,6 +812,11 @@ Security in Distributed Applications}
 		\end{enumerate}
 \end{itemize}
 \alert{Positive side-note}: Threema had released a security white paper early on
+\end{frame}
+
+\begin{frame}
+	\frametitle{Our Library}
+	
 \end{frame}
 
 \begin{frame}[plain]

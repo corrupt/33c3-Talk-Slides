@@ -305,7 +305,7 @@
 \end{bytefield}
 
 \section*{PKCS7 Padding}
-\bfseries
+{\bfseries
 \begin{bytefield}[bitwidth=2em]{16}
 	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
 	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
@@ -331,6 +331,34 @@
 	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox[]{1}{} &
 	\bitbox[]{1}{} & \bitbox[]{1}{} & \bitbox{1}{06} & \bitbox{1}{06} &
 	\bitbox{1}{06} & \bitbox{1}{06} & \bitbox{1}{06} & \bitbox{1}{06} \\
+\end{bytefield}
+}
+\section*{Group Management Message - Add Users}
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Message Header}
+		\header[!10!lightgray]
+	\end{rightwordgroup}\\
+	\begin{rightwordgroup}{Ciphertext}
+		\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize \bfseries 0x4A}} & \cbb{GroupID}{8}{Group ID} & \cbb[lrt]{ThreemaID}{23}{}\\
+		\cbb[lbt]{ThreemaID}{9}{} & \cbb[rb]{ThreemaID}{8}{\raisebox{1.7em}{Member IDs}} & \cbb[rtl]{Padding}{15}{}\\
+		\cbb[lbt]{Padding}{17}{} & \cbb[br]{Padding}{15}{\raisebox{1.7em}{Variable-length Padding}}
+	\end{rightwordgroup}
+\end{bytefield}
+
+\section*{Group Management Message - Rename Group}
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Message Header}
+		\header[!10!lightgray]
+	\end{rightwordgroup}\\
+	\begin{rightwordgroup}{Ciphertext}
+		\cbb{MsgType}{1}{\rotatebox{90}{\scriptsize \bfseries 0x4B}} & \cbb{GroupID}{8}{Group ID} & \cbb[lrt]{String}{23}{}\\
+		\cbb[lbt]{String}{9}{} & \cbb[rb]{String}{23}{\raisebox{1.7em}{Group Name}} \\ 
+		\cbb{Padding}{32}{Variable-length Padding}
+	\end{rightwordgroup}
 \end{bytefield}
 
 \end{document}
