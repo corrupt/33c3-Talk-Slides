@@ -603,9 +603,11 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
+	\frametitle{}
 		\begin{center}\includegraphics[width=\textwidth]{img/2-layer-tunnel2.pdf}\end{center}
-		Lila und Gruen sind klar\\
-		Jetzt noch kurz rot
+		\pdfcomment{Now we have explained all layers of the protocol. But what do we want to do with it?}
+		\pdfcomment{We want to exchange messages. Our messages, as explained, are the inner channel}
+		\pdfcomment{And that's what we will look at next}
 \end{frame}
 
 \begin{frame}
@@ -668,17 +670,21 @@ Security in Distributed Applications}
 % 	\end{itemize}
 % \end{frame}
 
-\begin{frame}
-	\frametitle{Group Messages}
-	\includegraphics[page=6,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
-\end{frame}
+\begin{fraem}
+	\frametitle{Recap}
+	Basic messaging functionality achieved.
+\end{fraem}
 
 \begin{frame}
 	\frametitle{Group Messages}
-	\begin{itemize}
-		\item Group IDs aren't unique. They are created locally and only work together with the group creator's ID
-		\item The structure of group messages makes it impossible for Threema to introduce multiple group administrators on a protocol level without breaking compatibility to older clients.
-	\end{itemize}
+	\includegraphics[page=6,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
+	\pdfcomment{Group IDs aren't unique. They are created locally and only work together with the group creator's ID}
+	\pdfcomment{The structure of group messages makes it impossible for Threema to introduce multiple group administrators on a protocol level without breaking compatibility to older clients.}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Implementation of Addon Features}
+		
 \end{frame}
 
 \begin{frame}
@@ -692,67 +698,67 @@ Security in Distributed Applications}
 \end{frame}
 
 
-\begin{frame}
-	\frametitle{Threema - Notes and Open Questions}
-	Notes:
-	\begin{itemize}
-		\item PFS only on transport layer (attacker sniffing packets from the outside will not learn contents after private key acquisition)
-	\end{itemize}
-	Q:
-	\begin{itemize}
-		\item How often is the handshake performed?
-	\end{itemize}
-\end{frame}
+%\begin{frame}
+%	\frametitle{Threema - Notes and Open Questions}
+%	Notes:
+%	\begin{itemize}
+%		\item PFS only on transport layer (attacker sniffing packets from the outside will not learn contents after private key acquisition)
+%	\end{itemize}
+%	Q:
+%	\begin{itemize}
+%		\item How often is the handshake performed?
+%	\end{itemize}
+%\end{frame}
 
 %\section{Case Study - Signal}
 
-\begin{frame}
-	\frametitle{Signal Forward and Future Secrecy}
-	\begin{itemize}
-		\item If you want forward secrecy, you need to use asymmetric crypto and dispose of your keys as often as possible
-		\item To do that you need to perform a new handshake frequently
-		\item Since it is not always given that both parties are online for that handshake, the good people of Whispersystems have come up with this:
-			\begin{enumerate}
-				\item Both parties upload a bunch of keys to the server. Those are signed identity keys as we've seen previously and a large number of \alert{prekeys}
-				\item Using a prekey, any party can perform their part of the handshake offline and end up with a new session key to use 
-				\item These session keys are renewed by \alert{ratcheting} with each message transfer
-			\end{enumerate}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Signal - Notes}
-	\begin{itemize}
-		\item Server-side cached short-term keys (\alert{prekeys}) fetched by sender
-		\item Pairwise long-lived symmetric secret key between participants
-		\item Multiple messages without answer $\rightarrow$ perform KDF on \alert{chaining key}
-		\item ECDH: Curve25519, AES-CTR (no padding), AES-CBC (PKCS7 padding)
-		\item HMAC-SHA256 for integrity
-		\item Future secrecy only if private keys are not leaked (duh!). Since private keys go into new shared keys during ratcheting, the attacker lacks material to compromise next key after obtaining current one.
-		\item Since shared keys are only deleted after messages are received, there is a window in which keys could be compromised before reception. 
-		\item Deniability is always a theoretical claim as long as a transmission server has the ability to log messages, their senders and recipients.
-
-	\end{itemize}
-\end{frame}
+%\begin{frame}
+%	\frametitle{Signal Forward and Future Secrecy}
+%	\begin{itemize}
+%		\item If you want forward secrecy, you need to use asymmetric crypto and dispose of your keys as often as possible
+%		\item To do that you need to perform a new handshake frequently
+%		\item Since it is not always given that both parties are online for that handshake, the good people of Whispersystems have come up with this:
+%			\begin{enumerate}
+%				\item Both parties upload a bunch of keys to the server. Those are signed identity keys as we've seen previously and a large number of \alert{prekeys}
+%				\item Using a prekey, any party can perform their part of the handshake offline and end up with a new session key to use 
+%				\item These session keys are renewed by \alert{ratcheting} with each message transfer
+%			\end{enumerate}
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%	\frametitle{Signal - Notes}
+%	\begin{itemize}
+%		\item Server-side cached short-term keys (\alert{prekeys}) fetched by sender
+%		\item Pairwise long-lived symmetric secret key between participants
+%		\item Multiple messages without answer $\rightarrow$ perform KDF on \alert{chaining key}
+%		\item ECDH: Curve25519, AES-CTR (no padding), AES-CBC (PKCS7 padding)
+%		\item HMAC-SHA256 for integrity
+%		\item Future secrecy only if private keys are not leaked (duh!). Since private keys go into new shared keys during ratcheting, the attacker lacks material to compromise next key after obtaining current one.
+%		\item Since shared keys are only deleted after messages are received, there is a window in which keys could be compromised before reception. 
+%		\item Deniability is always a theoretical claim as long as a transmission server has the ability to log messages, their senders and recipients.
+%
+%	\end{itemize}
+%\end{frame}
 
 %\section{Reverse-Engineering Threema}
 
-\begin{frame}
-	\frametitle{Enter Threema}
-	Threema
-	\begin{itemize}
-		\item Gained popularity in Germany after Facebook purchased WhatsApp
-		\item All promise -- no proof; first openly contemplating to OSS the code, later backing away from that statement
-		\item Interest in its inner workings
-	\end{itemize}
-
-	Quick Shoutouts
-	\begin{itemize}
-		\item Jan Ahrens for releasing his findings about the handshake before we did
-		\item OpenMittsu for releasing the first working OSS client
-	\end{itemize}
-	
-\end{frame}
+%\begin{frame}
+%	\frametitle{Enter Threema}
+%	Threema
+%	\begin{itemize}
+%		\item Gained popularity in Germany after Facebook purchased WhatsApp
+%		\item All promise -- no proof; first openly contemplating to OSS the code, later backing away from that statement
+%		\item Interest in its inner workings
+%	\end{itemize}
+%
+%	Quick Shoutouts
+%	\begin{itemize}
+%		\item Jan Ahrens for releasing his findings about the handshake before we did
+%		\item OpenMittsu for releasing the first working OSS client
+%	\end{itemize}
+%	
+%\end{frame}
 
 \begin{frame}
 	\frametitle{Reverse-Engineering -- What to look for?}
