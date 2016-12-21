@@ -91,8 +91,6 @@ Security in Distributed Applications}
 
 \begin{document}
 
-\pdfcomment{test}
-
 \maketitle
 %\section{Introduction}
 
@@ -517,7 +515,9 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
-	Threema Architecture
+	\frametitle{Threema's Architecture}
+	\centering
+	\includegraphics[width=\textwidth]{img/threema-architecture-overview.pdf}
 	\pdfcomment{Coversation starts with Directory Server}
 	\pdfcomment{Messaging server is the most essential}
 	\pdfcomment{MediaServer is for transmission of big files, will e explained later}
@@ -533,7 +533,8 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
-	NaCl
+	\frametitle{NaCl and Threema}
+	\includegraphics[width=\textwidth]{img/NaCl.pdf}
 	\pdfcomment{NaCl exists and it works as roland explained in "autheticated encryption"}
 	\pdfcomment{3ma uses it}
 	\pdfcomment{c = crypto_box(msg,nonce,pk,sk)}
