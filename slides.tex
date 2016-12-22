@@ -475,21 +475,31 @@ Security in Distributed Applications}
 
 \begin{frame}
 	\frametitle{Authenticity}
+	We have now solved the Authentiticy problem
 	\begin{itemize}
-		\item How to connect a key to a person?
-			\begin{itemize}
-				\item[$\rightarrow$] Key signing (PGP)
-				\item[$\rightarrow$] Certificates (trusted third party)
-				\item[$\rightarrow$] (Messenger-)service-based directory (based on phone numbers or email addresses)
-					\pdfcomment{It is not a good idea to use phone numbers for identities, we rather want a separate ID. That's where Threema's approach is interesting}
-			\end{itemize}
-		\item How to deal with changing keys?
-			\begin{itemize}
-				\item warnings are annoying
-				\item Threema's traffic light system encourages authentication but doesn't deal with changing keys (other than new identities for known phone numbers with yellow dots)
-			\end{itemize}
-
+		\item User can be identified by their phone number or email address\\
+			\quad\alert{$\rightarrow$} But they have dedicated IDs.\\
+			\quad\alert{$\rightarrow$} Personal verification is possible.
 	\end{itemize}
+	\vspace{2em}
+	The remaining unsolved problem is a user changing their ID.\\
+			\quad\alert{$\rightarrow$} At this point, the problem starts anew.\\
+			\quad\alert{$\rightarrow$} We will get back to that later.
+	%\begin{itemize}
+	%	\item How to connect a key to a person?
+	%		\begin{itemize}
+	%			\item[$\rightarrow$] Key signing (PGP)
+	%			\item[$\rightarrow$] Certificates (trusted third party)
+	%			\item[$\rightarrow$] (Messenger-)service-based directory (based on phone numbers or email addresses)
+	%				\pdfcomment{It is not a good idea to use phone numbers for identities, we rather want a separate ID. That's where Threema's approach is interesting}
+	%		\end{itemize}
+	%	\item How to deal with changing keys?
+	%		\begin{itemize}
+	%			\item warnings are annoying
+	%			\item Threema's traffic light system encourages authentication but doesn't deal with changing keys (other than new identities for known phone numbers with yellow dots)
+	%		\end{itemize}
+
+	%\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -867,6 +877,9 @@ Security in Distributed Applications}
 
 \begin{frame}
 	\frametitle{Our Library}
+
+	Our reverse-engineering efforts led to a re-implementation of Threema's API.
+
 	
 \end{frame}
 
@@ -889,14 +902,15 @@ Security in Distributed Applications}
 			\end{tabular}
 		\end{column}
 	\end{columns}
-	\alert{\rule{.75\textwidth}{1pt}}\\[1em]
-	\scriptsize
+	\alert{\rule{.75\textwidth}{1pt}}\\[1.5em]
+	\tiny
 	\begin{tabular}{@{}ll}
 		Beamer Theme: & \alert{\href{https://github.com/matze/mtheme}{Metropolis}} by Matthias volgelsang\\
 		Color Theme: & \alert{\href{https://github.com/rchurchley/beamercolortheme-owl}{Owl}} by Ross Chirchley \\
 		Icons: & \alert{\href{https://thenounproject.com/mockturtle/collection/big/}{The BIG collection}} by Sergey Demushkin\\
 		 & \alert{\href{http://zurb.com/playground/foundation-icon-fonts-3}{Foundation Icon Fonts 3}} by ZURB\\
 		 \multicolumn{2}{@{}l}{NaCl slide was adapted from a figure in Threema's \alert{\href{https://threema.ch/press-files/2_documentation/cryptography_whitepaper.pdf}{Cryptography Whitepaper}}}\\
+		 \multicolumn{2}{@{}l}{Threema Screenshots taken from the \alert{\href{https://threema.ch/en/press}{Threema press package}}}\\
 	\end{tabular}\\[2em]
 	Thanks to \alert{Jan Ahrens} and \alert{Philipp Berger} -- their work has made ours somewhat easier\\
 	Thanks to \alert{Maximilian Köstler} for his initial work on Threema
