@@ -576,13 +576,13 @@ Security in Distributed Applications}
 				\begin{overlayarea}{\textwidth}{\textheight}
 					\-\\%invisible line break
 					\only<1>{%
-						Initial Text goes here
+						Exchange a set of \aert{ephemral keys} and verify each others long term identity keys.
 					}
 					\only<2>{%
 						{\large Client Hello Packet}\\[1ex]
 						\includegraphics[page=11,clip,trim={.99cm 9cm 3.2cm 2.55cm},width=\textwidth]{out/messages.pdf}
 						\begin{itemize}
-							\item Client generates a \alert{ephemeral} key pair
+							\item Client generates a \alert{ephemeral key} pair
 							\item Client generates random nonce prefix
 						\end{itemize}
 					}	
@@ -590,7 +590,7 @@ Security in Distributed Applications}
 						{\large Server Hello Packet}\\[1ex]
 						\includegraphics[page=11,clip,trim={.99cm 3.5cm 3.2cm 6.9cm},width=\textwidth]{out/messages.pdf}
 						\begin{itemize}
-							\item Server generates \alert{ephemeral} key pair
+							\item Server generates \alert{ephemeral key} pair
 							\item Server generates random nonce
 							\item Ciphertext encrypted with Server Nonce, Client Ephemeral Key and Server Long-Term Key
 						\end{itemize}
@@ -601,15 +601,16 @@ Security in Distributed Applications}
 						{\large Client Authentication Packet}\\[1ex]
 						\includegraphics[page=12,clip,trim={.99cm 10cm 3.2cm 1.5cm},width=\textwidth]{out/messages.pdf}
 						\begin{itemize}
-							\item Outer Encryption with ephemral Keys
-							\item Ciphertext links clients ephemeral key pair to it's long term key pair
+							\item Outer Encryption with \aert{ephemeral Keys}
+							\item Ciphertext links clients \aert{ephemeral key} pair to it's long term key pair
 						\end{itemize}
 					}	
 					\only<5>{%
 						{\large Server Acknowledgement Packet}\\[1ex]
 						\includegraphics[page=12,clip,trim={.99cm 7cm 3.2cm 6.2cm},width=\textwidth]{out/messages.pdf}
 						\begin{itemize}
-							\item Server comfirms everything wokred fine by encrypting something with both ephemeral keys
+							\item Server comfirms everything worked fine by encrypting something with both \alrt{ephemeral keys}
+							\item We have established a forward secure channel between app and messaging server.
 						\end{itemize}
 					}	
 				\end{overlayarea} \end{column}
