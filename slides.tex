@@ -565,7 +565,22 @@ Security in Distributed Applications}
 
 \begin{frame}
 	\frametitle{Threema Fingerprints}
-	\includegraphics[height=.9\textheight]{img/android-nexus5x-2.6-us_en-dark-10-contacts-portrait-deviceart.png}
+	\-\\[-.1em]
+	\begin{columns}
+		\begin{column}{.3\textwidth}
+			\includegraphics[height=.9\textheight]{img/android-nexus5x-2.6-us_en-dark-10-contacts-portrait-deviceart.png}
+		\end{column}
+		\begin{column}{.7\textwidth}
+			Threema offers dedicated IDs		
+			\begin{itemize}
+				\item Users \alert{may} provider their phone number and email.
+				\item If provided, phone number and email are used for identification with the directory server.
+				\item If no additional data is provided, IDs can only be exchanged manually.
+				\item In either case, manual verification using QR codes is encouraged.
+				\item The app permanently tracks the verification status of each peer ID.
+			\end{itemize}
+		\end{column}
+	\end{columns}
 	\pdfcomment{Tackles the PKI problem explained earlier}
 	\pdfcomment{Solution is pretty good. Reason why we chose 3ma}
 	\pdfcomment{Less trust in Keys from Directory Server based on Threema ID}
@@ -660,20 +675,21 @@ Security in Distributed Applications}
 		\pdfcomment{And that's what we will look at next}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Threema Packet Format}
-
+	\-\\[1em]
 	\includegraphics[page=1,clip,trim={.99cm 8cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
-
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Threema Text Messages}
+	\-\\[1em]
 	\includegraphics[page=3,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Threema Image Messages}
+	\-\\[1em]
 	\includegraphics[page=4,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
 \end{frame}
 
