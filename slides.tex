@@ -246,7 +246,7 @@ Security in Distributed Applications}
 				\item could reroute your messages and impersonate either of you: \alert{no authentication}
 				%\item would know all messages you ever exchanged: \alert{no forward secrecy}
 				%\item would know all messages exchanged in the future: \alert{no future secrecy}
-				\item not guarantee any secrecy, so we have neither \alert{forward secrecy} nor \alert{future secrecy}
+				\item do not guarantee any secrecy, so we have neither \alert{forward secrecy} nor \alert{future secrecy}
 				%\item could store all messages and use them as proof of the exchange: \alert{no deniability}
 				\item[$\rightarrow$] We could argue having \alert{deniability} though.
 			\end{itemize}
@@ -825,6 +825,7 @@ Security in Distributed Applications}
 	\begin{itemize}
 		\item Media messages could be StageFright attack vectors
 		\item The protocol implementation looks sound to us but the message design prevents feature upgrades on the protocol (not text-protocol) level
+		\item Retention policies for uploaded Blobs
 
 	\end{itemize}
 \end{frame}
