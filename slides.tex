@@ -175,7 +175,7 @@ Security in Distributed Applications}
 	We call this \alert{future secrecy}}
 	\pdfcomment{Future Secrecy is also called post-compromise security}
 	\only<2>{%
-		Perfect Forward- and Future Secrecy\\
+		Forward- and Future Secrecy\\
 		\begin{center}
 			\includegraphics[width=\textwidth]{img/pfs-simple.pdf}
 		\end{center}
@@ -244,7 +244,7 @@ Security in Distributed Applications}
 				\item would know the contents of your exchange: \alert{no confidentiality}
 				\item could change the contents of your exchange: \alert{no integrity}
 				\item could reroute your messages and impersonate either of you: \alert{no authentication}
-				\item would know all messages you ever exchanged: \alert{no forward Secrecy}
+				\item would know all messages you ever exchanged: \alert{no forward secrecy}
 				\item would know all messages exchanged in the future: \alert{no future secrecy}
 				\item could store all messages and use them as proof of the exchange: \alert{no deniability}
 			\end{itemize}
@@ -317,7 +317,7 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Authenticated Enryption}
+	\frametitle{Key Agreement}
 	\center
 	\pdfcomment{what if we had a scheme, that produced a key specifically from one public and one private key}
 	\pdfcomment{turns out, we have. And it works both ways and produces the same key}
@@ -337,7 +337,7 @@ Security in Distributed Applications}
 	\begin{tabular}{@{}p{.6\textwidth}p{.4\textwidth}}
 		\parbox{.6\textwidth}{\alert{Asymmetric Encryption} gives us IDs but is very expensive.} & \parbox{.4\textwidth}{\includegraphics[width=.4\textwidth]{img/asymmetric_crypto-2.pdf}}  \\[36pt]
 		\parbox{.6\textwidth}{\alert{Symmetric Encryption} is cheap, but a key has to be shared by all participants \alert{before} communication starts.} & \parbox{.4\textwidth}{\includegraphics[width=.4\textwidth]{img/symmetric_crypto.pdf}} \\[36pt]
-		\parbox{.6\textwidth}{\alert{Authenticated Encryption} allows us to create symmetric keys based on asymmetric key pairs.} & \parbox{.4\textwidth}{\includegraphics[width=.4\textwidth]{img/pka.pdf}} \\
+		\parbox{.6\textwidth}{\alert{Key Agreement} allows us to create symmetric keys based on asymmetric key pairs.} & \parbox{.4\textwidth}{\includegraphics[width=.4\textwidth]{img/pka.pdf}} \\
 	\end{tabular}
 	\vfill
 	But there's more\ldots
@@ -399,7 +399,7 @@ Security in Distributed Applications}
 
 \begin{frame}
 	\frametitle{Recap}
-	Authenticated Encryption gives us:
+	Our key agreement protocol gives us:
 	\begin{itemize}
 		\item Confidentiality
 		\item Deniability
@@ -407,7 +407,7 @@ Security in Distributed Applications}
 	\end{itemize}
 	We don't have:
 	\begin{itemize}
-		\item Perfect Forward Secrecy
+		\item Forward Secrecy
 		\item Future Secrecy
 	\end{itemize}
 	\-\\[2em]
@@ -678,7 +678,7 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
-	\frametitle{}
+	\frametitle{A 2-Layer Tunnel}
 		\begin{center}\includegraphics[width=\textwidth]{img/2-layer-tunnel2.pdf}\end{center}
 		\pdfcomment{Now we have explained all layers of the protocol. But what do we want to do with it?}
 		\pdfcomment{We want to exchange messages. Our messages, as explained, are the inner channel}
@@ -759,12 +759,19 @@ Security in Distributed Applications}
 			\pdfcomment{Group IDs aren't unique. They are created locally and only work together with the group creator's ID}
 			\pdfcomment{The structure of group messages makes it impossible for Threema to introduce multiple group administrators on a protocol level without breaking compatibility to older clients.}
 		}
-		\only<2>{%
+	\end{overlayarea}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Group Management Messages}
+	\-\\[2em]
+	\begin{overlayarea}{\textwidth}{\textheight}
+		\only<1>{%
 
 			\includegraphics[page=14,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
 
 		}
-		\only<3>{%
+		\only<2>{%
 
 			\includegraphics[page=15,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
 
