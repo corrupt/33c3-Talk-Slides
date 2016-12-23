@@ -361,6 +361,20 @@
 	\end{rightwordgroup}
 \end{bytefield}
 
+\section*{Quoted Text Message}
+
+\begin{bytefield}{32}
+	\bitheader{0-31}\\
+	\begin{rightwordgroup}{Header}
+		\header[!10!lightgray]
+	\end{rightwordgroup}\\
+	\begin{rightwordgroup}{Ciphertext}
+		\cbb{MsgType}{1}{\rotatebox{90}{\tiny\bfseries 0x01}} & \cbb[rlt]{String}{31}{}\\
+		\cbb[tl]{String}{1}{}\cbb[r]{String}{31}{} \\
+		\cwb[rl]{String}{1}{\raisebox{4em}{\parbox{7.4cm}{$\mathtt{>}$ \texttt{1EE733C3: I'm a quoted message.\\ And I'm a comment!}}}}\\
+		\cwb{Padding}{1}{Variable-length Padding}
+	\end{rightwordgroup}\\
+\end{bytefield}
 \end{document}
 
 

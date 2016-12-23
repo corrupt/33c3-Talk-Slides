@@ -42,9 +42,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="1166.2195"
-     inkscape:cy="652.80375"
+     inkscape:zoom="0.7"
+     inkscape:cx="1981.8774"
+     inkscape:cy="320.11277"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -87,7 +87,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -3658,5 +3658,137 @@
          inkscape:connector-curvature="0"
          style="fill:#ffffff" />
     </g>
+    <rect
+       style="opacity:1;fill:#0098e9;fill-opacity:1;stroke:#0098e9;stroke-width:0.99999994;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5538"
+       width="319"
+       height="58.571426"
+       x="1790.0345"
+       y="388.23364" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="1803.4626"
+       y="425.16934"
+       id="text5540"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5542"
+         x="1803.4626"
+         y="425.16934"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:30px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:#ffffff;">JPEG Image</tspan></text>
+    <rect
+       style="opacity:1;fill:#f29318;fill-opacity:1;stroke:#f29318;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5544"
+       width="319"
+       height="227.85716"
+       x="1789.9939"
+       y="445.41278" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="1801.7483"
+       y="483.63177"
+       id="text5554"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5556"
+         x="1801.7483"
+         y="483.63177"
+         style="font-size:30px">Exif Data</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="1790.885"
+       y="580.43304"
+       id="text5560"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5562"
+         x="1790.885"
+         y="580.43304"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#ffffff" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="1790.8444"
+       y="514.00537"
+       id="text5566"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5568"
+         x="1790.8444"
+         y="514.00537"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#ffffff">..x...1}....y....l.a..</tspan><tspan
+         sodipodi:role="line"
+         x="1790.8444"
+         y="544.00537"
+         id="tspan5570"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#ffffff">e}...q.Gy....w.m....w.</tspan><tspan
+         sodipodi:role="line"
+         x="1790.8444"
+         y="574.00537"
+         id="tspan5582"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#ffffff">......p8..H....x..I.!</tspan><tspan
+         sodipodi:role="line"
+         x="1790.8444"
+         y="604.00537"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#ffffff"
+         id="tspan5602">Greetings from Iceland</tspan><tspan
+         sodipodi:role="line"
+         x="1790.8444"
+         y="634.00537"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#ffffff"
+         id="tspan5606">.....&quot; ..,...{.]......</tspan><tspan
+         sodipodi:role="line"
+         x="1790.8444"
+         y="664.00537"
+         id="tspan5586"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#ffffff">..G..8....O&lt;R.....x.\.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="2089.3203"
+       y="539.23364"
+       id="text5576"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5578"
+         x="2089.3203"
+         y="539.23364"></tspan><tspan
+         sodipodi:role="line"
+         x="2089.3203"
+         y="569.23364"
+         id="tspan5580" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="6864.3203"
+       y="674.23364"
+       id="text5588"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5590"
+         x="6864.3203"
+         y="674.23364">t</tspan></text>
+    <rect
+       y="674.26996"
+       x="1790.0345"
+       height="58.571426"
+       width="319"
+       id="rect5614"
+       style="opacity:1;fill:#807ac9;fill-opacity:1;stroke:#807ac9;stroke-width:0.99999994;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5617"
+       y="711.20569"
+       x="1803.4626"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:30px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif Medium';fill:#ffffff"
+         y="711.20569"
+         x="1803.4626"
+         id="tspan5619"
+         sodipodi:role="line">Image data</tspan></text>
   </g>
 </svg>
