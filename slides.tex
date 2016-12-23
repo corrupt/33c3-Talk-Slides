@@ -244,9 +244,11 @@ Security in Distributed Applications}
 				\item would know the contents of your exchange: \alert{no confidentiality}
 				\item could change the contents of your exchange: \alert{no integrity}
 				\item could reroute your messages and impersonate either of you: \alert{no authentication}
-				\item would know all messages you ever exchanged: \alert{no forward secrecy}
-				\item would know all messages exchanged in the future: \alert{no future secrecy}
-				\item could store all messages and use them as proof of the exchange: \alert{no deniability}
+				%\item would know all messages you ever exchanged: \alert{no forward secrecy}
+				%\item would know all messages exchanged in the future: \alert{no future secrecy}
+				\item not guarantee any secrecy, so we have neither \alert{forward secrecy} nor \alert{future secrecy}
+				%\item could store all messages and use them as proof of the exchange: \alert{no deniability}
+				\item[$\rightarrow$] We could argue having \alert{deniability} though.
 			\end{itemize}
 		}
 	\end{minipage}
@@ -565,6 +567,17 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
+	\frametitle{Threema}
+	\centering
+	\includegraphics[width=.4\textwidth]{img/threema-android-icon-noshadow.pdf}
+	\pdfcomment{no advertising}
+	\pdfcomment{no recommendations}
+	\pdfcomment{no formal analysis}
+	\pdfcomment{it is closed-source so we could only work with that}
+	\pdfcomment{we have looked at the app and will now present our findings}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Threema's Architecture}
 	\centering
 	\includegraphics[width=\textwidth]{img/threema-architecture-overview.pdf}
@@ -612,6 +625,7 @@ Security in Distributed Applications}
 	%\pdfcomment{3ma uses it}
 	%\pdfcomment{c = crypto_box(msg,nonce,pk,sk)}
 	\end{overlayarea}
+	\pdfcomment{Salt gives us what is called 'authenticated encryption', which gives us authenticity, integrity and confidentiality}
 \end{frame}
 
 
@@ -689,6 +703,7 @@ Security in Distributed Applications}
 	\frametitle{Threema Packet Format}
 	\-\\[1em]
 	\includegraphics[page=1,clip,trim={.99cm 8cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
+	\pdfcomment{Sender and recipient are on the 'envelope' as outlined earlier}
 \end{frame}
 
 \begin{frame}[t]
@@ -767,12 +782,12 @@ Security in Distributed Applications}
 	\-\\[2em]
 	\begin{overlayarea}{\textwidth}{\textheight}
 		\only<1>{%
-
+			Group creation message\\[1em]
 			\includegraphics[page=14,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
 
 		}
 		\only<2>{%
-
+			Group rename message\\[1em]
 			\includegraphics[page=15,clip,trim={.99cm 7.5cm 3.2cm 1.8cm},width=\textwidth]{out/messages.pdf}
 
 		}
@@ -797,6 +812,7 @@ Security in Distributed Applications}
 			\includegraphics[page=16,clip,trim={.99cm 7.5cm 7.2cm 1.8cm},width=.7\textwidth]{out/messages.pdf}\\[1em]
 			\includegraphics[width=.25\textwidth]{img/quote.png}
 		\end{center}
+		\pdfcomment{Has to be a Threema ID, not a nickname}
 	}
 		
 \end{frame}
@@ -807,7 +823,7 @@ Security in Distributed Applications}
 	\frametitle{The Devil's in the Detail}
 	Sammlung kleinerer Dinge, die uns aufgefallen sind
 	\begin{itemize}
-		\item Media messages could be StageFright attach vectors
+		\item Media messages could be StageFright attack vectors
 		\item The protocol implementation looks sound to us but the message design prevents feature upgrades on the protocol (not text-protocol) level
 
 	\end{itemize}
@@ -876,27 +892,27 @@ Security in Distributed Applications}
 %	
 %\end{frame}
 
-\begin{frame}
-	\frametitle{Reverse-Engineering -- What to look for?}
-\begin{itemize}
-	\item Test for common pitfalls in implementation
-		\begin{itemize}
-			\item Handling of TLS
-			\item Handling of keys and nonces
-			\item NaCl implementation errors
-			\item Uncommon data leaks
-			\item Bugs
-			\item \ldots?
-		\end{itemize}
-	\item Find out how protocol is designed
-		\begin{enumerate}
-			\item Understand handshakes
-			\item Understand protocol
-			\item decipher messages
-		\end{enumerate}
-\end{itemize}
-\alert{Positive side-note}: Threema had released a security white paper early on
-\end{frame}
+%\begin{frame}
+%	\frametitle{Reverse-Engineering -- What to look for?}
+%	\begin{itemize}
+%		\item Test for common pitfalls in implementation
+%			\begin{itemize}
+%				\item Handling of TLS
+%				\item Handling of keys and nonces
+%				\item NaCl implementation errors
+%				\item Uncommon data leaks
+%				\item Bugs
+%				\item \ldots?
+%			\end{itemize}
+%		\item Find out how protocol is designed
+%			\begin{enumerate}
+%				\item Understand handshakes
+%				\item Understand protocol
+%				\item decipher messages
+%			\end{enumerate}
+%	\end{itemize}
+%	\alert{Positive side-note}: Threema had released a security white paper early on
+%\end{frame}
 
 \begin{frame}
 	\frametitle{Our Library}
@@ -906,8 +922,9 @@ Security in Distributed Applications}
 	
 \end{frame}
 
-\begin{frame}[plain]
+\begin{frame}[plain,t]
 	\frametitle{Done!}
+	\-\\[.5em]
 	{\Huge\bfseries Thank You!} \\[2em]
 	\begin{columns}[t]
 		\begin{column}[t]{.3\textwidth}
