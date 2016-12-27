@@ -336,7 +336,7 @@ Security in Distributed Applications}
 	\center
 	\pdfcomment{what if we had a scheme, that produced a key specifically from one public and one private key}
 	\pdfcomment{turns out, we have. And it works both ways and produces the same key}
-	\pdfcomment{this is one particular way to perform key agreement}
+	\pdfcomment{this is one particular way to perform key establishment}
 	\pdfcomment{as we will later see, there is a better way consisting of a 4-way message exchange. But for that, both parties have to be online}.
 	\pdfcomment{this scheme has one advantage and one disadvantage. The advantage was just mentioned, the disadvantage is that we always come up with the same key. And we will see why that is a problem in a minute}
 	\includegraphics[width=.9\textwidth]{img/pka.pdf}	
@@ -355,7 +355,7 @@ Security in Distributed Applications}
 	\begin{tabular}{@{}p{.6\textwidth}p{.4\textwidth}}
 		\parbox{.6\textwidth}{\alert{Asymmetric Encryption} gives us IDs but is very expensive.} & \parbox{.4\textwidth}{\includegraphics[width=.4\textwidth]{img/asymmetric_crypto-2.pdf}}  \\[36pt]
 		\parbox{.6\textwidth}{\alert{Symmetric Encryption} is cheap, but a key has to be shared by all participants \alert{before} communication starts.} & \parbox{.4\textwidth}{\includegraphics[width=.4\textwidth]{img/symmetric_crypto.pdf}} \\[36pt]
-		\parbox{.6\textwidth}{\alert{Key Agreement} allows us to create symmetric keys based on asymmetric key pairs.} & \parbox{.4\textwidth}{\includegraphics[width=.4\textwidth]{img/pka.pdf}} \\
+		\parbox{.6\textwidth}{\alert{Key Establishment} allows us to create symmetric keys based on asymmetric key pairs.} & \parbox{.4\textwidth}{\includegraphics[width=.4\textwidth]{img/pka.pdf}} \\
 	\end{tabular}
 	\vfill
 	But there's more\ldots
@@ -417,7 +417,7 @@ Security in Distributed Applications}
 
 \begin{frame}
 	\frametitle{Recap}
-	Our key agreement protocol gives us:
+	Our key establishment protocol gives us:
 	\begin{itemize}
 		\item Confidentiality
 		\item Deniability
@@ -835,15 +835,15 @@ Security in Distributed Applications}
 
 
 
-\begin{frame}
-	\frametitle{The Devil's in the Detail}
-	Sammlung kleinerer Dinge, die uns aufgefallen sind
-	\begin{itemize}
-		\item Media messages could be StageFright attack vectors
-		\item The protocol implementation looks sound to us but the message design prevents feature upgrades on the protocol (not text-protocol) level
-		\item Retention policies for uploaded Blobs
-	\end{itemize}
-\end{frame}
+%\begin{frame}
+%	\frametitle{The Devil's in the Detail}
+%	Sammlung kleinerer Dinge, die uns aufgefallen sind
+%	\begin{itemize}
+%		\item Media messages could be StageFright attack vectors
+%		\item The protocol implementation looks sound to us but the message design prevents feature upgrades on the protocol (not text-protocol) level
+%		\item Retention policies for uploaded Blobs
+%	\end{itemize}
+%\end{frame}
 
 
 %\begin{frame}
@@ -934,6 +934,15 @@ Security in Distributed Applications}
 	\frametitle{Our Library}
 
 	Our reverse-engineering efforts led to a re-implementation of Threema's API.
+	\begin{itemize}
+		\item Fully Threema-compatible
+		\item Almost feature-complete
+		\item Completely undocumented (yet)
+	\end{itemize}\\[1em]
+
+	You can find the repositories at this location:\\
+	\url{https://github.com/o3ma}
+
 
 	
 \end{frame}
