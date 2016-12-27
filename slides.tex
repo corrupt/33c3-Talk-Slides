@@ -319,10 +319,13 @@ Security in Distributed Applications}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Key Agreement}
+	\frametitle{Key Establishment}
 	\center
 	\pdfcomment{what if we had a scheme, that produced a key specifically from one public and one private key}
 	\pdfcomment{turns out, we have. And it works both ways and produces the same key}
+	\pdfcomment{this is one particular way to perform key agreement}
+	\pdfcomment{as we will later see, there is a better way consisting of a 4-way message exchange. But for that, both parties have to be online}.
+	\pdfcomment{this scheme has one advantage and one disadvantage. The advantage was just mentioned, the disadvantage is that we always come up with the same key. And we will see why that is a problem in a minute}
 	\includegraphics[width=.9\textwidth]{img/pka.pdf}	
 \end{frame}
 
@@ -826,7 +829,6 @@ Security in Distributed Applications}
 		\item Media messages could be StageFright attack vectors
 		\item The protocol implementation looks sound to us but the message design prevents feature upgrades on the protocol (not text-protocol) level
 		\item Retention policies for uploaded Blobs
-
 	\end{itemize}
 \end{frame}
 

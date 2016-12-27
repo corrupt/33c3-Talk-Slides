@@ -10,9 +10,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="348.28107mm"
-   height="52.170918mm"
-   viewBox="0 0 1234.0667 184.85759"
+   width="242.23491mm"
+   height="99.998367mm"
+   viewBox="0 0 858.31262 354.32494"
    id="svg4571"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -44,15 +44,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="1762.371"
-     inkscape:cy="479.05663"
+     inkscape:cx="48.585432"
+     inkscape:cy="532.59585"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1200"
-     inkscape:window-x="1200"
-     inkscape:window-y="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="752"
+     inkscape:window-x="0"
+     inkscape:window-y="16"
      inkscape:window-maximized="0"
      showguides="false"
      inkscape:snap-smooth-nodes="true"
@@ -68,15 +68,15 @@
      fit-margin-right="0"
      fit-margin-bottom="0">
     <sodipodi:guide
-       position="174.96519,-231.70003"
+       position="-1538.8203,-178.16079"
        orientation="1,0"
        id="guide8477" />
     <sodipodi:guide
-       position="174.96519,-231.70003"
+       position="-1538.8203,-178.16079"
        orientation="0,1"
        id="guide8479" />
     <sodipodi:guide
-       position="174.96519,-283.84293"
+       position="-1538.8203,-230.30369"
        orientation="0,1"
        id="guide8481" />
   </sodipodi:namedview>
@@ -98,7 +98,7 @@
      inkscape:label="bg"
      style="display:inline"
      sodipodi:insensitive="true"
-     transform="translate(-67.891834,-1556.024)">
+     transform="translate(-1781.6774,-1440.0959)">
     <rect
        style="opacity:1;fill:#000000;fill-opacity:0.93301433;stroke:#f29318;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect7004"
@@ -111,7 +111,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-67.891834,-503.66174)">
+     transform="translate(-1781.6774,-387.73361)">
     <g
        id="g9705"
        transform="translate(798.69597,-259.34355)" />
